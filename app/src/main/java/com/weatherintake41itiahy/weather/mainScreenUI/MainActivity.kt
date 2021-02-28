@@ -8,12 +8,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.weatherintake41itiahy.weather.R
-import com.weatherintake41itiahy.weather.model.Repository
+import com.weatherintake41itiahy.weather.model.repository.Repository
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -25,6 +26,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        Repository(application).updateWeatherData("33.441792","-94.037689",1614280782735,"ismailia",true)
     }
 }

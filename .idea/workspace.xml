@@ -6,12 +6,87 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Repository" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="aaaa" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="762d735c-8764-40e4-b8f7-a4c949dace4b" name="Default Changelist" comment="" />
+    <list default="true" id="762d735c-8764-40e4-b8f7-a4c949dace4b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_base_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_maps_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/weatherintake41itiahy/weather/BuildConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/build/generated/source/kapt/debug/com/weatherintake41itiahy/weather/model/room/OfflineDatabase_Impl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/build/generated/source/kapt/debug/com/weatherintake41itiahy/weather/model/room/WeatherDAO_Impl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/home/HomeAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/map/MapsActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/screenDataObj/MainFeatures.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/settings/SettingsActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/add_location.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cloud_46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/moon_46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/moon_night.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rain_ani.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rain_ani_part.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rain_f_46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sunny_fff_46_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/thander.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/thunder_46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/release/res/values/google_maps_api.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Weather.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Weather.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/SettingsActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/dashboard/DashboardFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/favorites/FavoritLocationsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/dashboard/DashboardViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/favorites/FavoritLocationsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/home/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/mainScreenUI/home/HomeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/repository/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/entity/WeatherEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/entity/WeatherEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/network/NetworkRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/network/NetworkRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/network/WeatherServices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/network/WeatherServices.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/room/WeatherDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/weatherintake41itiahy/weather/model/room/WeatherDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/background_morning.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_morning.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/nav_background_curved.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/nav_background_curved.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/recycler_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/recycler_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sunny_anim.gif" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sunny_anim.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorites_locations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notifications.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/settings_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/settings_activity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/root_preferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/root_preferences.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +104,7 @@
         <option value="resourceFile" />
         <option value="Class" />
         <option value="Kotlin Interface" />
+        <option value="valueResourceFile" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -37,19 +113,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1oq8N4XUQNDUQhUyX35sY9jWmft" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/UXLab/task2task3task4task7" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="PsdUISettings">
@@ -57,16 +139,20 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.weatherintake41itiahy.weather.settings" />
+      <recent name="com.weatherintake41itiahy.weather.model.repository" />
+      <recent name="com.weatherintake41itiahy.weather.map" />
       <recent name="com.weatherintake41itiahy.weather.model.entity.weatherTimes" />
       <recent name="com.weatherintake41itiahy.weather.model.entity.converters" />
-      <recent name="com.weatherintake41itiahy.weather.model.room" />
-      <recent name="com.weatherintake41itiahy.weather.MainScreenUI" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Weather2\app\src\main\res\drawable" />
     </key>
     <key name="android.template.1203967906">
       <recent name="com.weatherintake41itiahy.weather.mainScreenUI" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Weather2\app\src\main\res\drawable" />
+    <key name="android.template.1347212667">
+      <recent name="com.weatherintake41itiahy.weather" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -172,7 +258,20 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
@@ -186,61 +285,81 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="286" y="160" key="#PSD/0.0.1536.824@0.0.1536.824" timestamp="1614339922214" />
-    <state x="560" y="130" key="#com.intellij.ide.util.MemberChooser" timestamp="1614299798867">
+    <state x="560" y="130" key="#com.intellij.ide.util.MemberChooser" timestamp="1614442607870">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="560" y="130" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1614299798867" />
+    <state x="560" y="130" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1614442607869" />
     <state x="423" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1614116281013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="423" y="338" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1614116281013" />
-    <state x="128" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614284541365">
+    <state x="128" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614434805539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="128" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1614284541365" />
-    <state x="523" y="205" width="562" height="417" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1614335949648">
+    <state x="128" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1614434805539" />
+    <state x="523" y="205" width="562" height="417" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1614434825293">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="523" y="205" width="562" height="417" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1614335949648" />
+    <state x="523" y="205" width="562" height="417" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1614434825293" />
+    <state x="515" y="248" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1614369711121">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="515" y="248" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1614369711121" />
+    <state x="93" y="93" width="1350" height="638" key="AVDManager" timestamp="1614539583722">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1614539583722" />
     <state x="349" y="169" key="AndroidCreateResourceFileDialog" timestamp="1614080655699">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="349" y="169" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1614080655699" />
-    <state x="614" y="200" key="AndroidCreateXmlResourceDialog" timestamp="1614084803360">
+    <state x="614" y="200" key="AndroidCreateXmlResourceDialog" timestamp="1614380489575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="614" y="200" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1614084803360" />
+    <state x="614" y="200" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1614380489575" />
     <state x="549" y="169" key="FileChooserDialogImpl" timestamp="1614334330283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="169" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1614334330283" />
-    <state x="647" y="312" width="241" height="276" key="Github.ShareDialog" timestamp="1614340336481">
+    <state x="647" y="312" width="241" height="276" key="Github.ShareDialog" timestamp="1614340413819">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="647" y="312" width="241" height="276" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1614340336481" />
-    <state x="533" y="119" key="Github.UntrackedFilesDialog" timestamp="1614340173379">
+    <state x="647" y="312" width="241" height="276" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1614340413819" />
+    <state x="533" y="119" key="Github.UntrackedFilesDialog" timestamp="1614340428192">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="533" y="119" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614340173379" />
-    <state width="1476" height="163" key="GridCell.Tab.0.bottom" timestamp="1614336040946">
+    <state x="533" y="119" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614340428192" />
+    <state width="1491" height="207" key="GridCell.Tab.0.bottom" timestamp="1614539713999">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614336040946" />
-    <state width="1476" height="163" key="GridCell.Tab.0.center" timestamp="1614336040945">
+    <state width="1491" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614539713999" />
+    <state width="1491" height="207" key="GridCell.Tab.0.center" timestamp="1614539713999">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="163" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614336040945" />
-    <state width="1476" height="163" key="GridCell.Tab.0.left" timestamp="1614336040944">
+    <state width="1491" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614539713999" />
+    <state width="1491" height="207" key="GridCell.Tab.0.left" timestamp="1614539713999">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="163" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614336040944" />
-    <state width="1476" height="163" key="GridCell.Tab.0.right" timestamp="1614336040946">
+    <state width="1491" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614539713999" />
+    <state width="1491" height="207" key="GridCell.Tab.0.right" timestamp="1614539713999">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="163" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614336040946" />
+    <state width="1491" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614539713999" />
+    <state x="543" y="114" key="RollbackChangesDialog" timestamp="1614539242005">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="543" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614539242005" />
     <state x="277" y="59" key="SettingsEditor" timestamp="1614340382493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="59" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614340382493" />
+    <state x="584" y="192" key="chooseDestDirectoryDialog" timestamp="1614527755098">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="584" y="192" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1614527755098" />
+    <state x="426" y="190" key="run.anything.popup" timestamp="1614446471053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="426" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614446471053" />
   </component>
 </project>

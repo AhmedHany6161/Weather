@@ -2,18 +2,19 @@
     <!-- Base application theme. -->
     <style name="Theme.Weather" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#008fcc</item>
-        <item name="colorPrimaryVariant">#00bfff</item>
-        <item name="colorOnPrimary">#6af2ff</item>
+        <item name="colorPrimary">#e5f8ff</item>
+        <item name="colorPrimaryVariant">#006aff</item>
+        <item name="colorOnPrimary">#003fff</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#46aacc</item>
         <item name="colorSecondaryVariant">#7EDCFF</item>
         <item name="colorOnSecondary">#b3ffff</item>
 
-        <!-- Status bar color. -->
-        <item name="android:textColor">#e5f8ff</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
-        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Weather.MainActivity" parent="Theme.Weather">
+        <item name="android:textColor">#e5f8ff</item>
     </style>
 </resources>

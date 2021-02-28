@@ -10,7 +10,7 @@ interface WeatherDAO {
     @Query("SELECT * FROM WeatherEntity where isTheCurrent=0")
     fun getFavoriteWeather(): Flow<List<WeatherEntity>>
 
-    @Query("SELECT * FROM WeatherEntity where isTheCurrent=1")
+    @Query("SELECT city,latLng,sunrise,sunset,isTheCurrent,listOfHourly FROM WeatherEntity where isTheCurrent=1")
     fun getCurrentWeather(): Flow<WeatherEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

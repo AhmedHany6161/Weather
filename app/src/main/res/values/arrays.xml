@@ -1,12 +1,31 @@
 <resources>
     <!-- Reply Preference -->
-    <string-array name="reply_entries">
-        <item>Reply</item>
-        <item>Reply to all</item>
+    <string-array name="get_location_entries">
+        <item>@string/GPS</item>
+        <item>@string/select_locatin</item>
     </string-array>
 
-    <string-array name="reply_values">
-        <item>reply</item>
-        <item>reply_all</item>
+    <string-array name="get_location_values">
+        <item>GPS</item>
+        <item>Select Manually</item>
+    </string-array>
+
+    <string-array name="units_temp_name">
+        <item>@string/kelvin</item>
+        <item>@string/Celsius</item>
+        <item>@string/Fahrenheit</item>
+    </string-array>
+    <string-array name="units_temp_value">
+        <item>kelvin</item>
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+    <string-array name="units_wind_name">
+        <item>@string/meter_sec</item>
+        <item>@string/miles_hour</item>
+    </string-array>
+    <string-array name="units_wind_value">
+        <item>meter/sec</item>
+        <item>miles/hour</item>
     </string-array>
 </resources>

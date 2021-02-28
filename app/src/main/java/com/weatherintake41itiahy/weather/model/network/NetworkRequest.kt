@@ -7,7 +7,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class NetworkRequest private constructor() {
-
     companion object {
         @Volatile
         private var weatherServices: WeatherServices? = null

@@ -23,4 +23,17 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="select_locatin">select location Manually</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="add_loction">add location</string>
+    <string name="Units">Units</string>
+    <string name="kelvin">kelvin</string>
+    <string name="Celsius">Celsius</string>
+    <string name="Fahrenheit">Fahrenheit</string>
+    <string name="meter_sec">meter/sec</string>
+    <string name="miles_hour">miles/hour</string>
+    <string name="temp">Temperature</string>
+    <string name="no_location">no location</string>
+    <string name="set_message">Set Home Using ...</string>
+    <string name="GPS">GPS</string>
 </resources>

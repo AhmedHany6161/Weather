@@ -9,11 +9,11 @@ import retrofit2.http.Query
 
 interface WeatherServices {
     @GET("onecall")
-    suspend fun listRepos(
+    suspend fun updateCurrentData(
         @Query("lat") lat: String,
         @Query("lon") lon: String,
-        @Query("dt") time: String,
-        @Query("exclude") ex: String = "hourly,daily",
+        @Query("exclude") ex: String = "minutely",
+        @Query("units") unit: String = "metric",
         @Query("appid") id: String = "6c55e902e38b6eaafb1e82b8e0a7d010"
     ): JsonObject
 

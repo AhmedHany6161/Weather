@@ -1789,7 +1789,10 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cloud
 drawable cloud_46
+drawable cloud_gg
+drawable cloud_ic
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1809,6 +1812,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable could_ic_5
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1872,6 +1876,7 @@ drawable rain_f_46
 drawable recycler_background
 drawable sunny_anim
 drawable sunny_fff_46_
+drawable temp_ic
 drawable test_custom_background
 drawable thander
 drawable thunder_46
@@ -1882,6 +1887,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id HourlyRecHome
 id Humidity
 id META
 id NO_DEBUG
@@ -2081,6 +2087,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageHourRec
 id imageWeatherState
 id info
 id invisible
@@ -2101,6 +2108,7 @@ id line3
 id linear
 id listMode
 id list_item
+id main_temp
 id map
 id masked
 id material_clock_display
@@ -2272,6 +2280,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tempHourRec
 id terrain
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
@@ -2285,7 +2294,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
+id textView2
 id textViewHum
 id textViewPres
 id textViewWid
@@ -2300,6 +2309,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
+id timeHourRec
 id timeViewId
 id title
 id titleDividerNoCustom
@@ -2327,6 +2337,7 @@ id visible
 id visible_removing_fragment_view_tag
 id wide
 id windSpeed
+id windSpeedHourRec
 id withText
 id withinBounds
 id wrap
@@ -2415,6 +2426,7 @@ layout design_text_input_start_icon
 layout expand_button
 layout fragment_favorites_locations
 layout fragment_home
+layout hourly_co
 layout image_frame
 layout material_chip_input_combo
 layout material_clock_display

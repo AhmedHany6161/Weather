@@ -15,10 +15,7 @@ import com.weatherintake41itiahy.weather.model.entity.converters.DailyConverter;
 import com.weatherintake41itiahy.weather.model.entity.converters.HourlyConverter;
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Daily;
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly;
-import java.lang.Boolean;
 import java.lang.Exception;
-import java.lang.Integer;
-import java.lang.Long;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -45,7 +42,7 @@ public final class WeatherDAO_Impl implements WeatherDAO {
     this.__insertionAdapterOfWeatherEntity = new EntityInsertionAdapter<WeatherEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `WeatherEntity` (`city`,`latLng`,`sunrise`,`sunset`,`isTheCurrent`,`listOfHourly`,`listOfDaily`) VALUES (?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `WeatherEntity` (`city`,`latLng`,`sunrise`,`sunset`,`timeZone`,`isTheCurrent`,`listOfHourly`,`listOfDaily`) VALUES (?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -60,36 +57,29 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         } else {
           stmt.bindString(2, value.getLatLng());
         }
-        if (value.getSunrise() == null) {
-          stmt.bindNull(3);
-        } else {
-          stmt.bindLong(3, value.getSunrise());
-        }
-        if (value.getSunset() == null) {
-          stmt.bindNull(4);
-        } else {
-          stmt.bindLong(4, value.getSunset());
-        }
-        final Integer _tmp;
-        _tmp = value.isTheCurrent() == null ? null : (value.isTheCurrent() ? 1 : 0);
-        if (_tmp == null) {
+        stmt.bindLong(3, value.getSunrise());
+        stmt.bindLong(4, value.getSunset());
+        if (value.getTimeZone() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindLong(5, _tmp);
+          stmt.bindString(5, value.getTimeZone());
         }
+        final int _tmp;
+        _tmp = value.isTheCurrent() ? 1 : 0;
+        stmt.bindLong(6, _tmp);
         final String _tmp_1;
         _tmp_1 = HourlyConverter.convertToString(value.getListOfHourly());
         if (_tmp_1 == null) {
-          stmt.bindNull(6);
+          stmt.bindNull(7);
         } else {
-          stmt.bindString(6, _tmp_1);
+          stmt.bindString(7, _tmp_1);
         }
         final String _tmp_2;
         _tmp_2 = DailyConverter.stringToDaily(value.getListOfDaily());
         if (_tmp_2 == null) {
-          stmt.bindNull(7);
+          stmt.bindNull(8);
         } else {
-          stmt.bindString(7, _tmp_2);
+          stmt.bindString(8, _tmp_2);
         }
       }
     };
@@ -183,6 +173,7 @@ public final class WeatherDAO_Impl implements WeatherDAO {
           final int _cursorIndexOfLatLng = CursorUtil.getColumnIndexOrThrow(_cursor, "latLng");
           final int _cursorIndexOfSunrise = CursorUtil.getColumnIndexOrThrow(_cursor, "sunrise");
           final int _cursorIndexOfSunset = CursorUtil.getColumnIndexOrThrow(_cursor, "sunset");
+          final int _cursorIndexOfTimeZone = CursorUtil.getColumnIndexOrThrow(_cursor, "timeZone");
           final int _cursorIndexOfIsTheCurrent = CursorUtil.getColumnIndexOrThrow(_cursor, "isTheCurrent");
           final int _cursorIndexOfListOfHourly = CursorUtil.getColumnIndexOrThrow(_cursor, "listOfHourly");
           final int _cursorIndexOfListOfDaily = CursorUtil.getColumnIndexOrThrow(_cursor, "listOfDaily");
@@ -193,26 +184,16 @@ public final class WeatherDAO_Impl implements WeatherDAO {
             _tmpCity = _cursor.getString(_cursorIndexOfCity);
             final String _tmpLatLng;
             _tmpLatLng = _cursor.getString(_cursorIndexOfLatLng);
-            final Long _tmpSunrise;
-            if (_cursor.isNull(_cursorIndexOfSunrise)) {
-              _tmpSunrise = null;
-            } else {
-              _tmpSunrise = _cursor.getLong(_cursorIndexOfSunrise);
-            }
-            final Long _tmpSunset;
-            if (_cursor.isNull(_cursorIndexOfSunset)) {
-              _tmpSunset = null;
-            } else {
-              _tmpSunset = _cursor.getLong(_cursorIndexOfSunset);
-            }
-            final Boolean _tmpIsTheCurrent;
-            final Integer _tmp;
-            if (_cursor.isNull(_cursorIndexOfIsTheCurrent)) {
-              _tmp = null;
-            } else {
-              _tmp = _cursor.getInt(_cursorIndexOfIsTheCurrent);
-            }
-            _tmpIsTheCurrent = _tmp == null ? null : _tmp != 0;
+            final long _tmpSunrise;
+            _tmpSunrise = _cursor.getLong(_cursorIndexOfSunrise);
+            final long _tmpSunset;
+            _tmpSunset = _cursor.getLong(_cursorIndexOfSunset);
+            final String _tmpTimeZone;
+            _tmpTimeZone = _cursor.getString(_cursorIndexOfTimeZone);
+            final boolean _tmpIsTheCurrent;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsTheCurrent);
+            _tmpIsTheCurrent = _tmp != 0;
             final List<Hourly> _tmpListOfHourly;
             final String _tmp_1;
             _tmp_1 = _cursor.getString(_cursorIndexOfListOfHourly);
@@ -221,7 +202,7 @@ public final class WeatherDAO_Impl implements WeatherDAO {
             final String _tmp_2;
             _tmp_2 = _cursor.getString(_cursorIndexOfListOfDaily);
             _tmpListOfDaily = DailyConverter.dailyToString(_tmp_2);
-            _item = new WeatherEntity(_tmpCity,_tmpLatLng,_tmpSunrise,_tmpSunset,_tmpIsTheCurrent,_tmpListOfHourly,_tmpListOfDaily);
+            _item = new WeatherEntity(_tmpCity,_tmpLatLng,_tmpSunrise,_tmpSunset,_tmpTimeZone,_tmpIsTheCurrent,_tmpListOfHourly,_tmpListOfDaily);
             _result.add(_item);
           }
           return _result;
@@ -239,7 +220,7 @@ public final class WeatherDAO_Impl implements WeatherDAO {
 
   @Override
   public Flow<WeatherEntity> getCurrentWeather() {
-    final String _sql = "SELECT city,latLng,sunrise,sunset,isTheCurrent,listOfHourly FROM WeatherEntity where isTheCurrent=1";
+    final String _sql = "SELECT * FROM WeatherEntity where isTheCurrent=1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return CoroutinesRoom.createFlow(__db, false, new String[]{"WeatherEntity"}, new Callable<WeatherEntity>() {
       @Override
@@ -250,39 +231,35 @@ public final class WeatherDAO_Impl implements WeatherDAO {
           final int _cursorIndexOfLatLng = CursorUtil.getColumnIndexOrThrow(_cursor, "latLng");
           final int _cursorIndexOfSunrise = CursorUtil.getColumnIndexOrThrow(_cursor, "sunrise");
           final int _cursorIndexOfSunset = CursorUtil.getColumnIndexOrThrow(_cursor, "sunset");
+          final int _cursorIndexOfTimeZone = CursorUtil.getColumnIndexOrThrow(_cursor, "timeZone");
           final int _cursorIndexOfIsTheCurrent = CursorUtil.getColumnIndexOrThrow(_cursor, "isTheCurrent");
           final int _cursorIndexOfListOfHourly = CursorUtil.getColumnIndexOrThrow(_cursor, "listOfHourly");
+          final int _cursorIndexOfListOfDaily = CursorUtil.getColumnIndexOrThrow(_cursor, "listOfDaily");
           final WeatherEntity _result;
           if(_cursor.moveToFirst()) {
             final String _tmpCity;
             _tmpCity = _cursor.getString(_cursorIndexOfCity);
             final String _tmpLatLng;
             _tmpLatLng = _cursor.getString(_cursorIndexOfLatLng);
-            final Long _tmpSunrise;
-            if (_cursor.isNull(_cursorIndexOfSunrise)) {
-              _tmpSunrise = null;
-            } else {
-              _tmpSunrise = _cursor.getLong(_cursorIndexOfSunrise);
-            }
-            final Long _tmpSunset;
-            if (_cursor.isNull(_cursorIndexOfSunset)) {
-              _tmpSunset = null;
-            } else {
-              _tmpSunset = _cursor.getLong(_cursorIndexOfSunset);
-            }
-            final Boolean _tmpIsTheCurrent;
-            final Integer _tmp;
-            if (_cursor.isNull(_cursorIndexOfIsTheCurrent)) {
-              _tmp = null;
-            } else {
-              _tmp = _cursor.getInt(_cursorIndexOfIsTheCurrent);
-            }
-            _tmpIsTheCurrent = _tmp == null ? null : _tmp != 0;
+            final long _tmpSunrise;
+            _tmpSunrise = _cursor.getLong(_cursorIndexOfSunrise);
+            final long _tmpSunset;
+            _tmpSunset = _cursor.getLong(_cursorIndexOfSunset);
+            final String _tmpTimeZone;
+            _tmpTimeZone = _cursor.getString(_cursorIndexOfTimeZone);
+            final boolean _tmpIsTheCurrent;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsTheCurrent);
+            _tmpIsTheCurrent = _tmp != 0;
             final List<Hourly> _tmpListOfHourly;
             final String _tmp_1;
             _tmp_1 = _cursor.getString(_cursorIndexOfListOfHourly);
             _tmpListOfHourly = HourlyConverter.convertToList(_tmp_1);
-            _result = new WeatherEntity(_tmpCity,_tmpLatLng,_tmpSunrise,_tmpSunset,_tmpIsTheCurrent,_tmpListOfHourly,null);
+            final List<Daily> _tmpListOfDaily;
+            final String _tmp_2;
+            _tmp_2 = _cursor.getString(_cursorIndexOfListOfDaily);
+            _tmpListOfDaily = DailyConverter.dailyToString(_tmp_2);
+            _result = new WeatherEntity(_tmpCity,_tmpLatLng,_tmpSunrise,_tmpSunset,_tmpTimeZone,_tmpIsTheCurrent,_tmpListOfHourly,_tmpListOfDaily);
           } else {
             _result = null;
           }

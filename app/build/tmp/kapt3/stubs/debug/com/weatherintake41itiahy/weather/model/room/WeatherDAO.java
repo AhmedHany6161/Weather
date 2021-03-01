@@ -11,7 +11,7 @@ public abstract interface WeatherDAO {
     public abstract kotlinx.coroutines.flow.Flow<java.util.List<com.weatherintake41itiahy.weather.model.entity.WeatherEntity>> getFavoriteWeather();
     
     @org.jetbrains.annotations.NotNull()
-    @androidx.room.Query(value = "SELECT city,latLng,sunrise,sunset,isTheCurrent,listOfHourly FROM WeatherEntity where isTheCurrent=1")
+    @androidx.room.Query(value = "SELECT * FROM WeatherEntity where isTheCurrent=1")
     public abstract kotlinx.coroutines.flow.Flow<com.weatherintake41itiahy.weather.model.entity.WeatherEntity> getCurrentWeather();
     
     @org.jetbrains.annotations.Nullable()

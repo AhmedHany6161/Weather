@@ -15,10 +15,11 @@ import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
 data class WeatherEntity(
     @PrimaryKey
     val city: String,
-    val latLng: String?,
-    val sunrise: Long?,
-    val sunset: Long?,
-    val isTheCurrent: Boolean?,
-    val listOfHourly: List<Hourly>?,
-    val listOfDaily: List<Daily>?
+    val latLng: String,
+    val sunrise: Long,
+    val sunset: Long,
+    val timeZone:String,
+    val isTheCurrent: Boolean,
+    val listOfHourly: List<Hourly>,
+    val listOfDaily: List<Daily>
 )

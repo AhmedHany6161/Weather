@@ -26,22 +26,22 @@ class Repository(application: Application) {
     fun updateWeatherData(
         lat: String,
         lon: String,
-        time: Long,
         city: String,
         home: Boolean
     ) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val call = services.listRepos(lat, lon, "$time")
-                Log.e("asasa", call.get("timezone").toString())
+                val call = services.updateCurrentData(lat, lon)
+               val offset=call.get("timezone_offset").asLong
                 weatherDAO.setWeather(
                     WeatherEntity(
                         city,
                         "$lat,$lon",
-                        call.getAsJsonObject("current").get("sunrise").asLong,
-                        call.getAsJsonObject("current").get("sunset").asLong,
+                        ((call.getAsJsonObject("current").get("sunrise").asLong)*1000L),
+                        ((call.getAsJsonObject("current").get("sunset").asLong)*1000L),
+                        call.get("timezone").asString,
                         home,
-                        convertToHourlyList(call.getAsJsonArray("hourly"),call.get("timezone_offset").asLong),
+                        convertToHourlyList(call.getAsJsonArray("hourly"),offset),
                         convertToDailyList(call.getAsJsonArray("daily"))
                     )
                 )
@@ -79,7 +79,7 @@ class Repository(application: Application) {
         return List(jsonArray.size()) { index ->
             jsonObject = jsonArray.get(index).asJsonObject
             Daily(
-                jsonObject.get("dt").asLong,
+                jsonObject.get("dt").asLong*1000L,
                 jsonObject.get("sunrise").asLong,
                 jsonObject.get("sunset").asLong,
                 jsonObject.getAsJsonObject("temp").get("min").asInt,
@@ -102,7 +102,7 @@ class Repository(application: Application) {
         return List(jsonArray.size()) { index ->
             jsonObject = jsonArray.get(index).asJsonObject
             Hourly(
-                ((jsonObject.get("dt").asLong+offset)*1000L),
+                jsonObject.get("dt").asLong*1000L,
                 jsonObject.get("temp").asInt,
                 jsonObject.get("feels_like").asInt,
                 jsonObject.get("pressure").asInt,

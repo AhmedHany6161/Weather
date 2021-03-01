@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">#7EDCFF</item>
         <item name="colorOnSecondary">#b3ffff</item>
 
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#3F51B5</item>
 
     </style>
 

@@ -1,4 +1,4 @@
-#Mon Mar 01 20:44:40 EET 2021
+#Tue Mar 02 01:50:56 EET 2021
 base.0=D\:\\Weather2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

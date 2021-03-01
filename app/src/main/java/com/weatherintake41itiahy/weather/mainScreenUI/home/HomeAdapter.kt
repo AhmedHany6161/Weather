@@ -29,6 +29,9 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.Holder>() {
         private val image: ImageView = itemView.findViewById(R.id.imageHourRec)
         private val temp: TextView = itemView.findViewById(R.id.tempHourRec)
         private val time: TextView = itemView.findViewById(R.id.timeHourRec)
+        private val main: TextView = itemView.findViewById(R.id.main_temp_rec)
+        private val clouds: TextView = itemView.findViewById(R.id.clouds_rec_id)
+
         private var imageId: Int = 0
 
         fun bind(currentWeather: Hourly,sunrise: Long, sunset: Long) {
@@ -69,10 +72,12 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.Holder>() {
             }
             val cDate = Date(currentWeather.time)
             val simpleTime = SimpleDateFormat("EEE/h a", Locale.US)
-            windSpeed.text = "${currentWeather.windSpeed} m/s"
+            windSpeed.text = " ${currentWeather.windSpeed}m/s"
             image.setImageResource(imageId)
             time.text = simpleTime.format(cDate)
-            temp.text="${currentWeather.temp} °C"
+            temp.text="${currentWeather.temp}°C"
+            main.text=currentWeather.weatherMain
+            clouds.text=" ${currentWeather.clouds}%"
         }
     }
 

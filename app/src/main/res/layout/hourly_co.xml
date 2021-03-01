@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="100dp"
     android:layout_height="wrap_content"
-    android:layout_margin="30dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginTop="30dp"
     android:background="#00FFFFFF">
 
     <TextView
@@ -26,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/timeHourRec"
         app:layout_constraintStart_toStartOf="@+id/timeHourRec"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/main_temp_rec"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/cloud_46" />
 
@@ -34,9 +35,11 @@
         android:id="@+id/tempHourRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Text"
+        app:drawableLeftCompat="@drawable/temp_ic_14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageHourRec"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageHourRec"
         app:layout_constraintTop_toBottomOf="@+id/imageHourRec"
         app:layout_constraintVertical_bias="0.0" />
@@ -45,21 +48,31 @@
         android:id="@+id/windSpeedHourRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginTop="5dp"
+        android:text="Text"
+        app:drawableLeftCompat="@drawable/air_ic_14"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageHourRec"
-        app:layout_constraintStart_toStartOf="@+id/imageHourRec"
-        app:layout_constraintTop_toBottomOf="@+id/tempHourRec"
-        app:layout_constraintVertical_bias="0.002" />
+        app:layout_constraintStart_toStartOf="@+id/clouds_rec_id"
+        app:layout_constraintTop_toBottomOf="@+id/clouds_rec_id"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/main_temp_rec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:layout_marginTop="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/imageHourRec"
         app:layout_constraintStart_toStartOf="@+id/imageHourRec"
         app:layout_constraintTop_toBottomOf="@+id/timeHourRec" />
+
+    <TextView
+        android:id="@+id/clouds_rec_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Text"
+        app:drawableStartCompat="@drawable/cloud_ic_14"
+        app:layout_constraintStart_toStartOf="@+id/tempHourRec"
+        app:layout_constraintTop_toBottomOf="@+id/tempHourRec" />
 </androidx.constraintlayout.widget.ConstraintLayout>

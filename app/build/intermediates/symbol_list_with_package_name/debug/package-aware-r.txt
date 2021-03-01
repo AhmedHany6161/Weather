@@ -1778,6 +1778,8 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable add_location
+drawable air_ic
+drawable air_ic_14
 drawable avd_hide_password
 drawable avd_show_password
 drawable background_morning
@@ -1793,6 +1795,7 @@ drawable cloud
 drawable cloud_46
 drawable cloud_gg
 drawable cloud_ic
+drawable cloud_ic_14
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1813,6 +1816,7 @@ drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable could_ic_5
+drawable degree
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1821,7 +1825,10 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable hum_18
+drawable humidity
 drawable ic_arrow_down_24dp
+drawable ic_baseline_arrow_downward_24
 drawable ic_baseline_home_24
 drawable ic_clock_black_24dp
 drawable ic_dashboard_black_24dp
@@ -1870,6 +1877,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable preference_list_divider_material
+drawable press_18
 drawable rain_ani
 drawable rain_ani_part
 drawable rain_f_46
@@ -1877,11 +1885,15 @@ drawable recycler_background
 drawable sunny_anim
 drawable sunny_fff_46_
 drawable temp_ic
+drawable temp_ic_14
 drawable test_custom_background
 drawable thander
 drawable thunder_46
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable visibility
+drawable wid_degree
+drawable wind_18
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -2000,6 +2012,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id cloudPercent
+id clouds_rec_id
 id collapseActionView
 id confirm_button
 id container
@@ -2053,6 +2066,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id feels_like
 id fill
 id fill_horizontal
 id fill_vertical
@@ -2109,6 +2123,7 @@ id linear
 id listMode
 id list_item
 id main_temp
+id main_temp_rec
 id map
 id masked
 id material_clock_display
@@ -2294,10 +2309,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView2
-id textViewHum
-id textViewPres
-id textViewWid
 id text_dashboard
 id text_input_end_icon
 id text_input_error_icon
@@ -2333,11 +2344,13 @@ id up
 id useLogo
 id view_offset_helper
 id view_tree_view_model_store_owner
+id visiablity
 id visible
 id visible_removing_fragment_view_tag
 id wide
 id windSpeed
 id windSpeedHourRec
+id wind_degree
 id withText
 id withinBounds
 id wrap

@@ -38,7 +38,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 if (list != null) {
                     current = System.currentTimeMillis()
                     for (i in 0..47) {
-                        if (current <= list!![i].time) {
+                        if (current < (list!![i].time+3600000)) {
                             currentWeather = list!![i]
                             break
                         }

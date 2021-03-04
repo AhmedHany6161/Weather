@@ -37,6 +37,8 @@ public final class WeatherDAO_Impl implements WeatherDAO {
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAll;
 
+  private final SharedSQLiteStatement __preparedStmtOfDeleteHome;
+
   public WeatherDAO_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfWeatherEntity = new EntityInsertionAdapter<WeatherEntity>(__db) {
@@ -105,6 +107,13 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         return _query;
       }
     };
+    this.__preparedStmtOfDeleteHome = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM WeatherEntity where isTheCurrent=1";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -155,6 +164,25 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         } finally {
           __db.endTransaction();
           __preparedStmtOfDeleteAll.release(_stmt);
+        }
+      }
+    }, p0);
+  }
+
+  @Override
+  public Object deleteHome(final Continuation<? super Unit> p0) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteHome.acquire();
+        __db.beginTransaction();
+        try {
+          _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfDeleteHome.release(_stmt);
         }
       }
     }, p0);
@@ -219,7 +247,7 @@ public final class WeatherDAO_Impl implements WeatherDAO {
   }
 
   @Override
-  public Flow<WeatherEntity> getCurrentWeather() {
+  public Flow<WeatherEntity> getHomeWeather() {
     final String _sql = "SELECT * FROM WeatherEntity where isTheCurrent=1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     return CoroutinesRoom.createFlow(__db, false, new String[]{"WeatherEntity"}, new Callable<WeatherEntity>() {

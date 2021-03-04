@@ -6,6 +6,6 @@
         android:id="@+id/settings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.weatherintake41itiahy.weather.settings.SettingsActivity$SettingsFragment"
+        android:name="com.weatherintake41itiahy.weather.mainScreenUI.settings.SettingsActivity$SettingsFragment"
         />
 </LinearLayout>

@@ -34,6 +34,8 @@ anim fragment_fade_exit
 anim fragment_fast_out_extra_slow_in
 anim fragment_open_enter
 anim fragment_open_exit
+anim main_screen_anim_left_right
+anim main_sreen_anim_right_left
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
@@ -41,6 +43,7 @@ anim nav_default_enter_anim
 anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
+anim recycler_anime_up_down
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -67,6 +70,8 @@ animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
 array get_location_entries
 array get_location_values
+array reply_entries
+array reply_values
 array units_temp_name
 array units_temp_value
 array units_wind_name
@@ -1823,6 +1828,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable favourites_ic
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable hum_18
@@ -1877,11 +1883,16 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable preference_list_divider_material
+drawable pregress_background
 drawable press_18
+drawable press_ic_24
 drawable rain_ani
 drawable rain_ani_part
 drawable rain_f_46
 drawable recycler_background
+drawable setting
+drawable setting_home
+drawable setting_unit
 drawable sunny_anim
 drawable sunny_fff_46_
 drawable temp_ic
@@ -1891,9 +1902,12 @@ drawable thander
 drawable thunder_46
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable up_temp
+drawable up_temp_18
 drawable visibility
 drawable wid_degree
 drawable wind_18
+drawable wind_degree_18
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1902,6 +1916,8 @@ id FUNCTION
 id HourlyRecHome
 id Humidity
 id META
+id MaxTemp
+id MinTemp
 id NO_DEBUG
 id Pressure
 id SHIFT
@@ -1961,8 +1977,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_navigation_dashboard_to_navigation_home
-id action_navigation_home_to_navigation_dashboard
 id action_text
 id actions
 id activity_chooser_view_content
@@ -1988,6 +2002,7 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bottom
+id bottom_main_fe
 id bounce
 id buttonPanel
 id cache_measures
@@ -2025,6 +2040,15 @@ id counterclockwise
 id custom
 id customPanel
 id cut
+id dailyCloud
+id dailyHumidity
+id dailyImageState
+id dailyMain
+id dailyPress
+id dailyRecHome
+id dailyTime
+id dailyWind
+id daily_parent
 id dark
 id dateViewId
 id date_picker_actions
@@ -2089,8 +2113,10 @@ id groups
 id guideline
 id header_title
 id hideable
+id holder_hourly
 id home
 id homeAsUp
+id home_data
 id honorRequest
 id hybrid
 id icon
@@ -2198,6 +2224,7 @@ id off
 id on
 id outline
 id outward
+id p_no_data
 id packed
 id parallax
 id parent
@@ -2252,6 +2279,7 @@ id select_dialog_listview
 id selected
 id selection_type
 id settings
+id settingsFragment
 id shortcut
 id showCustom
 id showHome
@@ -2286,6 +2314,7 @@ id stretch
 id submenuarrow
 id submit_area
 id switchWidget
+id t_no_data
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -2328,6 +2357,7 @@ id title_template
 id toggle
 id top
 id topPanel
+id top_main_fe
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -2421,6 +2451,7 @@ layout abc_tooltip
 layout activity_main
 layout activity_maps
 layout custom_dialog
+layout daily_co
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -2531,6 +2562,7 @@ navigation mobile_navigation
 plurals mtrl_badge_content_description
 string Celsius
 string Fahrenheit
+string FeelLike
 string GPS
 string Units
 string abc_action_bar_home_description
@@ -2597,12 +2629,15 @@ string expand_button_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string favourites
 string google_maps_key
 string hide_bottom_view_on_scroll_behavior
+string hide_cast_for_7_days
 string humidity
 string icon_content_description
 string item_view_role_description
 string kelvin
+string location
 string material_clock_display_divider
 string material_clock_toggle_content_description
 string material_hour_selection
@@ -2671,6 +2706,7 @@ string reply_title
 string search_menu_title
 string select_locatin
 string set_message
+string settings
 string show_cast_for_7_days
 string signature_title
 string status_bar_notification_info_overflow
@@ -2678,6 +2714,7 @@ string summary_collapsed_preference_list
 string sync_header
 string sync_title
 string temp
+string there_is_no_data
 string title_activity_maps
 string title_activity_settings
 string title_dashboard
@@ -2685,6 +2722,7 @@ string title_home
 string title_notifications
 string v7_preference_off
 string v7_preference_on
+string weather_state
 string wind_speed
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -3183,6 +3221,7 @@ style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
 style Theme_Weather
 style Theme_Weather_MainActivity
+style Theme_Weather_alert
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark

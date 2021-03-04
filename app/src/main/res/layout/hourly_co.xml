@@ -1,78 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="100dp"
+    android:id="@+id/holder_hourly"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="30dp"
-    android:layout_marginTop="30dp"
-    android:background="#00FFFFFF">
+    android:layout_margin="20dp"
+    android:background="#00FFFFFF"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/timeHourRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        android:layout_gravity="center_horizontal"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/main_temp_rec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Text" />
 
     <ImageView
         android:id="@+id/imageHourRec"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/timeHourRec"
-        app:layout_constraintStart_toStartOf="@+id/timeHourRec"
-        app:layout_constraintTop_toBottomOf="@+id/main_temp_rec"
-        app:layout_constraintVertical_bias="0.0"
+        android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/cloud_46" />
 
     <TextView
         android:id="@+id/tempHourRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="Text"
-        app:drawableLeftCompat="@drawable/temp_ic_14"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageHourRec"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageHourRec"
-        app:layout_constraintTop_toBottomOf="@+id/imageHourRec"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/windSpeedHourRec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Text"
-        app:drawableLeftCompat="@drawable/air_ic_14"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/clouds_rec_id"
-        app:layout_constraintTop_toBottomOf="@+id/clouds_rec_id"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/main_temp_rec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Text"
-        app:layout_constraintEnd_toEndOf="@+id/imageHourRec"
-        app:layout_constraintStart_toStartOf="@+id/imageHourRec"
-        app:layout_constraintTop_toBottomOf="@+id/timeHourRec" />
+        app:drawableLeftCompat="@drawable/temp_ic_14" />
 
     <TextView
         android:id="@+id/clouds_rec_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
         android:text="Text"
-        app:drawableStartCompat="@drawable/cloud_ic_14"
-        app:layout_constraintStart_toStartOf="@+id/tempHourRec"
-        app:layout_constraintTop_toBottomOf="@+id/tempHourRec" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:drawableStartCompat="@drawable/cloud_ic_14" />
+
+    <TextView
+        android:id="@+id/windSpeedHourRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Text"
+        app:drawableLeftCompat="@drawable/air_ic_14" />
+
+
+</LinearLayout>

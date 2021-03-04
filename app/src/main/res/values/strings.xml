@@ -33,7 +33,14 @@
     <string name="meter_sec">meter/sec</string>
     <string name="miles_hour">miles/hour</string>
     <string name="temp">Temperature</string>
-    <string name="no_location">no location</string>
+    <string name= "location">location</string>
     <string name="set_message">Set Home Using ...</string>
     <string name="GPS">GPS</string>
+    <string name="FeelLike">Feel Like</string>
+    <string name="settings">Settings</string>
+    <string name="favourites">Favourites</string>
+    <string name="hide_cast_for_7_days">hide forecast for 7 days</string>
+    <string name="no_location">no location</string>
+    <string name="there_is_no_data">there is no data please set home location from setting</string>
+    <string name="weather_state">weather State</string>
 </resources>

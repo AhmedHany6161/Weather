@@ -12,7 +12,8 @@
     <string name="miles_hour">ميل / ساعة</string>
     <string name="GPS">"نظام تحديد المواقع "</string>
     <string name="temp">درجه الحراره</string>
-    <string name="no_location">لا يوجد موقع</string>
+    <string name="no_location">الموقع غير متوفر</string>
     <string name="set_message">تعيين  الطقس باستخدام ...</string>
     <string name="select_locatin">"حدد الموقع يدويًا "</string>
+    <string name="FeelLike">تشعر وكأنه</string>
 </resources>

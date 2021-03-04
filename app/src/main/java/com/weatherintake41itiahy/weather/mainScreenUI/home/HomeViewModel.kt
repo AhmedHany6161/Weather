@@ -4,14 +4,11 @@ import android.app.Application
 
 import androidx.lifecycle.*
 import androidx.lifecycle.Observer
-import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
 import com.weatherintake41itiahy.weather.model.repository.Repository
-import com.weatherintake41itiahy.weather.screenDataObj.MainFeatures
+import com.weatherintake41itiahy.weather.screenData.MainFeatures
 import kotlinx.coroutines.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
@@ -20,25 +17,38 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val job = Job()
     private val mainFeaturesLive: MutableLiveData<MainFeatures> = MutableLiveData()
     private var list: List<Hourly>? = null
-    var weatherEntity: WeatherEntity? = null
+    private var weatherEntity: WeatherEntity? = null
+    private var visibility = false
+    private val showAndHideDailyLive: MutableLiveData<Boolean> = MutableLiveData()
+
     private val observer = Observer<WeatherEntity> {
-        weatherEntity = it
-        list = it.listOfHourly
+        if (it != null) {
+            weatherEntity = it
+            list = it.listOfHourly
+        }
+    }
+
+    fun showAndHideDaily() {
+        visibility = !visibility
+        showAndHideDailyLive.postValue(visibility)
+    }
+
+    fun getDailyVisibilityOfList():LiveData<Boolean>{
+        return showAndHideDailyLive
     }
 
     init {
-        repository.updateWeatherData("30.5965", "32.2715", "ismailia", true)
         liveData.observeForever(observer)
         CoroutineScope(Dispatchers.Default + job).launch {
 
             var current: Long
             var currentWeather: Hourly? = null
             while (job.isActive) {
-
+                delay(2000)
                 if (list != null) {
                     current = System.currentTimeMillis()
                     for (i in 0..47) {
-                        if (current < (list!![i].time+3600000)) {
+                        if (current < (list!![i].time + 3600000)) {
                             currentWeather = list!![i]
                             break
                         }
@@ -53,7 +63,9 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                         )
                     }
                     currentWeather = null
-                    delay(3000)
+
+                }else{
+                    mainFeaturesLive.postValue(null)
                 }
             }
 

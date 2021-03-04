@@ -23,54 +23,56 @@ class Repository(application: Application) {
     private val weatherDAO: WeatherDAO = OfflineDatabase.getDatabase(application).WeatherDAO()
     private val services: WeatherServices = NetworkRequest.getServices()
 
-    fun updateWeatherData(
+    suspend fun updateHomeWeatherData(
         lat: String,
         lon: String,
         city: String,
         home: Boolean
     ) {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val call = services.updateCurrentData(lat, lon)
-               val offset=call.get("timezone_offset").asLong
-                weatherDAO.setWeather(
-                    WeatherEntity(
-                        city,
-                        "$lat,$lon",
-                        ((call.getAsJsonObject("current").get("sunrise").asLong)*1000L),
-                        ((call.getAsJsonObject("current").get("sunset").asLong)*1000L),
-                        call.get("timezone").asString,
-                        home,
-                        convertToHourlyList(call.getAsJsonArray("hourly"),offset),
-                        convertToDailyList(call.getAsJsonArray("daily"))
-                    )
+        try {
+            val call = services.updateCurrentData(lat, lon)
+            deleteHome()
+            weatherDAO.setWeather(
+                WeatherEntity(
+                    city,
+                    "$lat,$lon",
+                    ((call.getAsJsonObject("current").get("sunrise").asLong) * 1000L),
+                    ((call.getAsJsonObject("current").get("sunset").asLong) * 1000L),
+                    call.get("timezone").asString,
+                    home,
+                    convertToHourlyList(call.getAsJsonArray("hourly")),
+                    convertToDailyList(call.getAsJsonArray("daily"))
                 )
-            } catch (e: Exception) {
-                Log.e(tag, e.toString())
-            }
-
-
+            )
+        } catch (e: Exception) {
+            Log.e(tag, e.toString())
         }
+
+
     }
 
     fun geHomeWeather(): Flow<WeatherEntity> {
-        return weatherDAO.getCurrentWeather()
+        return weatherDAO.getHomeWeather()
     }
 
     fun getFavoriteLocations(): Flow<List<WeatherEntity>> {
         return weatherDAO.getFavoriteWeather()
     }
 
-    fun deleteItem(weatherEntity: WeatherEntity) {
+    suspend fun deleteItem(weatherEntity: WeatherEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             weatherDAO.delete(weatherEntity)
         }
     }
 
-    fun deleteAll() {
-        CoroutineScope(Dispatchers.IO).launch {
-            weatherDAO.deleteAll()
-        }
+    suspend fun deleteAll() {
+        weatherDAO.deleteAll()
+
+    }
+
+    private suspend fun deleteHome() {
+        weatherDAO.deleteHome()
+
     }
 
     private fun convertToDailyList(jsonArray: JsonArray): List<Daily> {
@@ -79,7 +81,7 @@ class Repository(application: Application) {
         return List(jsonArray.size()) { index ->
             jsonObject = jsonArray.get(index).asJsonObject
             Daily(
-                jsonObject.get("dt").asLong*1000L,
+                jsonObject.get("dt").asLong * 1000L,
                 jsonObject.get("sunrise").asLong,
                 jsonObject.get("sunset").asLong,
                 jsonObject.getAsJsonObject("temp").get("min").asInt,
@@ -96,13 +98,13 @@ class Repository(application: Application) {
         }
     }
 
-    private fun convertToHourlyList(jsonArray: JsonArray,offset:Long): List<Hourly> {
+    private fun convertToHourlyList(jsonArray: JsonArray): List<Hourly> {
         var jsonObject: JsonObject
 
         return List(jsonArray.size()) { index ->
             jsonObject = jsonArray.get(index).asJsonObject
             Hourly(
-                jsonObject.get("dt").asLong*1000L,
+                jsonObject.get("dt").asLong * 1000L,
                 jsonObject.get("temp").asInt,
                 jsonObject.get("feels_like").asInt,
                 jsonObject.get("pressure").asInt,

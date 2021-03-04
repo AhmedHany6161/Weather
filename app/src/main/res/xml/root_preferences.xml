@@ -1,37 +1,79 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/select_locatin">
+    <PreferenceCategory
+        app:icon="@drawable/setting_home"
+        app:title="@string/select_locatin">
         <ListPreference
-            app:persistent="true"
+            app:icon="@drawable/ic_baseline_home_24"
             app:entries="@array/get_location_entries"
             app:entryValues="@array/get_location_values"
             app:key="home_location"
-            app:title="@string/set_message"
+            app:persistent="true"
             app:summary="%s"
+            app:defaultValue="Select Manually"
+            app:title="@string/set_message"
             app:useSimpleSummaryProvider="true" />
         <Preference
-            app:key="set_location"
-            app:title="@string/no_location"
+            app:icon="@drawable/add_location"
             app:defaultValue="none"
+            android:persistent="true"
+            app:key="set_location"
+            app:title="@string/location"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/Units">
+    <PreferenceCategory
+        app:icon="@drawable/setting_unit"
+        app:title="@string/Units">
         <ListPreference
-            app:defaultValue="kelvin"
-            app:persistent="true"
+            app:icon="@drawable/temp_ic"
+            app:defaultValue="Celsius"
             app:entries="@array/units_temp_name"
             app:entryValues="@array/units_temp_value"
             app:key="temp_unit"
+            app:persistent="true"
             app:title="@string/temp"
             app:useSimpleSummaryProvider="true" />
         <ListPreference
+            app:icon="@drawable/air_ic"
             app:defaultValue="meter/sec"
-            app:persistent="true"
             app:entries="@array/units_wind_name"
             app:entryValues="@array/units_wind_value"
             app:key="wind_speed"
+            app:persistent="true"
             app:title="@string/wind_speed"
+
             app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
     </PreferenceCategory>
 
 

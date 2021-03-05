@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
+    android:background="#00000000"
     android:orientation="vertical">
 
     <FrameLayout
-        android:layout_width="wrap_content"
         android:id="@+id/p_no_data"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
         <com.weatherintake41itiahy.weather.mainScreenUI.home.CustomProgress
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
     </FrameLayout>
 
     <TextView
@@ -27,17 +29,27 @@
         android:textSize="20sp"
         android:visibility="gone" />
 
-    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/out_of_date"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/the_data_is_not_up_to_date"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         tools:context=".mainScreenUI.home.HomeFragment">
+
         <LinearLayout
             android:id="@+id/home_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/top_main_fe"
@@ -85,9 +97,8 @@
                     android:id="@+id/timeViewId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="47dp"
                     android:textSize="18sp"
-
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.921"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
@@ -99,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="18sp"
+
                     app:layout_constraintEnd_toEndOf="@+id/timeViewId"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
@@ -160,7 +172,7 @@
                 android:id="@+id/bottom_main_fe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/recycler_background">
 
                 <TextView
@@ -181,7 +193,7 @@
                     android:id="@+id/Humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="30dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/humidity"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -204,7 +216,7 @@
                     android:id="@+id/Pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="5dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/ic_baseline_arrow_downward_24"
@@ -231,7 +243,7 @@
                     android:id="@+id/windSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="30dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/air_ic"
                     app:layout_constraintEnd_toEndOf="parent"

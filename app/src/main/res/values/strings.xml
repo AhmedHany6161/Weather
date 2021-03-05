@@ -31,7 +31,9 @@
     <string name="Celsius">Celsius</string>
     <string name="Fahrenheit">Fahrenheit</string>
     <string name="meter_sec">meter/sec</string>
-    <string name="miles_hour">miles/hour</string>
+    <string name="miles_hour">miles/h</string>
+    <string name="km_hour">km/h</string>
+
     <string name="temp">Temperature</string>
     <string name= "location">location</string>
     <string name="set_message">Set Home Using ...</string>
@@ -43,4 +45,5 @@
     <string name="no_location">no location</string>
     <string name="there_is_no_data">there is no data please set home location from setting</string>
     <string name="weather_state">weather State</string>
+    <string name="the_data_is_not_up_to_date">the data is not up to date please connect to internet to update</string>
 </resources>

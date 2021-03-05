@@ -41,7 +41,7 @@ class HourlyAdapter : RecyclerView.Adapter<HourlyAdapter.Holder>() {
             imageId = filter.getImageStateHourly(currentWeather, sunrise, sunset)
             val cDate = Date(currentWeather.time)
             val simpleTime = SimpleDateFormat("EEE/h a", Locale.getDefault())
-            windSpeed.text = " ${currentWeather.windSpeed}m/s"
+            windSpeed.text = filter.getSpeedUnit(currentWeather.windSpeed)
             image.setImageResource(imageId)
             time.text = simpleTime.format(cDate)
             temp.text = filter.getTemp(currentWeather.temp)

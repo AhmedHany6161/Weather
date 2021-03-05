@@ -23,7 +23,7 @@ class Repository(application: Application) {
     private val weatherDAO: WeatherDAO = OfflineDatabase.getDatabase(application).WeatherDAO()
     private val services: WeatherServices = NetworkRequest.getServices()
 
-    suspend fun updateHomeWeatherData(
+    suspend fun updateWeatherData(
         lat: String,
         lon: String,
         city: String,
@@ -31,7 +31,9 @@ class Repository(application: Application) {
     ) {
         try {
             val call = services.updateCurrentData(lat, lon)
-            deleteHome()
+            if (home) {
+                deleteHome()
+            }
             weatherDAO.setWeather(
                 WeatherEntity(
                     city,

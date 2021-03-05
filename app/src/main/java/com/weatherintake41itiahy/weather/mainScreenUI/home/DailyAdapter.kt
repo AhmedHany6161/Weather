@@ -43,7 +43,7 @@ class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
             imageId = filter.getImageStateDaily(currentWeather)
             val simpleTime = SimpleDateFormat("dd/ MMMM \nEEEE", Locale.getDefault())
             time.text = simpleTime.format(Date(currentWeather.date))
-            windSpeed.text = " ${currentWeather.wind_speed}m/s"
+            windSpeed.text =  filter.getSpeedUnit(currentWeather.wind_speed)
             image.setImageResource(imageId)
             tempMin.text = filter.getTemp(currentWeather.tempMin)
             tempMax.text = filter.getTemp(currentWeather.tempMax)

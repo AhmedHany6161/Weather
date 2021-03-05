@@ -43,22 +43,38 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
             var current: Long
             var currentWeather: Hourly? = null
+            var hour=0
             while (job.isActive) {
                 delay(2000)
                 if (list != null) {
                     current = System.currentTimeMillis()
                     for (i in 0..47) {
+                        hour=i
                         if (current < (list!![i].time + 3600000)) {
                             currentWeather = list!![i]
                             break
                         }
                     }
+                    if(hour>1){
+                        val latLng=weatherEntity!!.latLng.split(",")
+                        repository.updateWeatherData(lat = latLng[0],lon = latLng[1],weatherEntity!!.city,true)
+                    }
+
                     if (currentWeather != null) {
                         mainFeaturesLive.postValue(
                             MainFeatures(
                                 currentWeather,
                                 weatherEntity!!,
                                 current
+                            )
+                        )
+                    }else{
+                        mainFeaturesLive.postValue(
+                            MainFeatures(
+                                list!![47],
+                                weatherEntity!!,
+                                current,
+                                true
                             )
                         )
                     }

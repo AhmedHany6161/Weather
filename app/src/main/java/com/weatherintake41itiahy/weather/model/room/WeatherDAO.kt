@@ -5,6 +5,7 @@ import androidx.room.*
 import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 import kotlinx.coroutines.flow.Flow
 
+
 @Dao
 interface WeatherDAO {
     @Query("SELECT * FROM WeatherEntity where isTheCurrent=0")

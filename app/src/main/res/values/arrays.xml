@@ -23,10 +23,12 @@
     <string-array name="units_wind_name">
         <item>@string/meter_sec</item>
         <item>@string/miles_hour</item>
+        <item>@string/km_hour</item>
     </string-array>
     <string-array name="units_wind_value">
         <item>meter/sec</item>
-        <item>miles/hour</item>
+        <item>miles/h</item>
+        <item>km/h</item>
     </string-array>
     <!-- Reply Preference -->
     <string-array name="reply_entries">

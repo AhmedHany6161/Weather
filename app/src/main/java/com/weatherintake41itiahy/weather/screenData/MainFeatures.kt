@@ -9,7 +9,8 @@ import java.util.*
 data class MainFeatures(
     private val currentWeather: Hourly,
     private val weatherEntity: WeatherEntity,
-    private val current: Long
+    private val current: Long,
+    val outOfDate: Boolean = false
 ) {
     val imageId: Int
     val city: String
@@ -24,9 +25,10 @@ data class MainFeatures(
     val temp: Int
     val windSpeed: Float
     val windDegree: Int
+
     init {
         val cDate = Date(current)
-        val simpleTime = SimpleDateFormat("h:mm a", Locale.US)
+        val simpleTime = SimpleDateFormat("h:mm a  ", Locale.US)
         val simpleDate = SimpleDateFormat("dd/ MMM /yyyy\n    EEEE", Locale.getDefault())
         if (currentWeather.weatherMain.equals("Thunderstorm")) {
             imageId = R.drawable.thander
@@ -37,13 +39,13 @@ data class MainFeatures(
             imageId = R.drawable.rain_ani
 
         } else {
-            val calendar=Calendar.getInstance()
-            calendar.timeInMillis=current
-            val cur =calendar.get(Calendar.HOUR_OF_DAY)
-            calendar.timeInMillis=weatherEntity.sunrise
-            val res =calendar.get(Calendar.HOUR_OF_DAY)
-            calendar.timeInMillis=weatherEntity.sunset
-            val set =calendar.get(Calendar.HOUR_OF_DAY)
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = current
+            val cur = calendar.get(Calendar.HOUR_OF_DAY)
+            calendar.timeInMillis = weatherEntity.sunrise
+            val res = calendar.get(Calendar.HOUR_OF_DAY)
+            calendar.timeInMillis = weatherEntity.sunset
+            val set = calendar.get(Calendar.HOUR_OF_DAY)
             imageId = if (cur in res..set) {
                 if (currentWeather.weatherMain.equals("Clear")) {
                     R.drawable.sunny_anim
@@ -71,7 +73,7 @@ data class MainFeatures(
         visibility = currentWeather.visibility
         windSpeed = currentWeather.windSpeed
         temp = currentWeather.temp
-        windDegree=currentWeather.windDeg
+        windDegree = currentWeather.windDeg
     }
 
 

@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
         val hourlyRec: RecyclerView = root.findViewById(R.id.HourlyRecHome)
         val dailyRec: RecyclerView = root.findViewById(R.id.dailyRecHome)
         val showAndHideDaily: Button = root.findViewById(R.id.forecastFor7days)
+        val outOfDate: TextView = root.findViewById(R.id.out_of_date)
 
         showAndHideDaily.paintFlags = showAndHideDaily.paintFlags or Paint.UNDERLINE_TEXT_FLAG
         topMain.animation =
@@ -88,9 +89,14 @@ class HomeFragment : Fragment() {
                 feelLike.text = "${getString(R.string.FeelLike)} ${filter.getTemp(it.feelsLike)}"
                 hum.text = "${it.humidity}%"
                 pressure.text = "${it.pressure}hPa"
-                windSpeed.text = "${it.windSpeed}m/s"
+                windSpeed.text = filter.getSpeedUnit(it.windSpeed)
                 windDegree.text = "${it.windDegree}°"
                 visablity.text = "${it.visibility}m"
+                if (it.outOfDate) {
+                    outOfDate.visibility = View.VISIBLE
+                } else {
+                    outOfDate.visibility = View.GONE
+                }
             } else {
                 texNoData.visibility = View.VISIBLE
                 proNoData.visibility = View.GONE

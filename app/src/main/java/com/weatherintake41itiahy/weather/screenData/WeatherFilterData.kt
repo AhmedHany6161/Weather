@@ -11,7 +11,7 @@ import java.util.*
 class WeatherFilterData( val context: Context) {
     private val preference = PreferenceManager.getDefaultSharedPreferences(context)
     private val degreeUnit = preference.getString("temp_unit", "Celsius")
-    private val speedUnit = preference.getString("wind_speed", "meter/sec")
+    private val speedUnit = preference.getString("wind_speed", "meter/s")
     fun getTemp(temp: Int): String {
         return when {
             degreeUnit.equals("Celsius") -> {
@@ -90,5 +90,9 @@ class WeatherFilterData( val context: Context) {
                 R.drawable.cloud_46
             }
         }
+    }
+
+    fun getSpeedUnit(speed:Float):String{
+          return "${speed} ${speedUnit}"
     }
 }

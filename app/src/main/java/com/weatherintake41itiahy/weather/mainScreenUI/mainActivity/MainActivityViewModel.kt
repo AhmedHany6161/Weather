@@ -36,7 +36,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
             }
         }
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateHomeWeatherData(
+            repository.updateWeatherData(
                 latitude,
                 longitude,
                 city, true

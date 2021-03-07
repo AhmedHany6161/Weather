@@ -18,10 +18,21 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 
-class Repository(application: Application) {
+class Repository private constructor(application: Application) {
     private val tag = Repository::class.simpleName
     private val weatherDAO: WeatherDAO = OfflineDatabase.getDatabase(application).WeatherDAO()
     private val services: WeatherServices = NetworkRequest.getServices()
+
+    companion object {
+        private var repository: Repository? = null
+        fun getInstance(application: Application): Repository {
+            return repository ?: synchronized(this) {
+                repository = Repository(application)
+                repository!!
+            }
+        }
+
+    }
 
     suspend fun updateWeatherData(
         lat: String,
@@ -62,9 +73,8 @@ class Repository(application: Application) {
     }
 
     suspend fun deleteItem(weatherEntity: WeatherEntity) {
-        CoroutineScope(Dispatchers.IO).launch {
-            weatherDAO.delete(weatherEntity)
-        }
+        weatherDAO.delete(weatherEntity)
+
     }
 
     suspend fun deleteAll() {

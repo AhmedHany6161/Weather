@@ -34,6 +34,7 @@ anim fragment_fade_exit
 anim fragment_fast_out_extra_slow_in
 anim fragment_open_enter
 anim fragment_open_exit
+anim item_animation_fall_down
 anim main_screen_anim_left_right
 anim main_sreen_anim_right_left
 anim mtrl_bottom_sheet_slide_in
@@ -1072,7 +1073,11 @@ bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
 bool config_materialPreferenceIconSpaceReserved
+bool enable_system_alarm_service_default
+bool enable_system_foreground_service_default
+bool enable_system_job_service_default
 bool mtrl_btn_textappearance_all_caps
+bool workmanager_test_configuration
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -1833,6 +1838,8 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable fav_location_rec
+drawable fav_rec_25
 drawable favourites_ic
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -2096,7 +2103,13 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id fav_add_btn
 id fav_fragment_rec
+id fav_p_no_data
+id fav_rec_date
+id fav_rec_name
+id fav_rec_time
+id fav_t_no_data
 id feels_like
 id fill
 id fill_horizontal
@@ -2724,6 +2737,7 @@ string sync_title
 string temp
 string the_data_is_not_up_to_date
 string there_is_no_data
+string there_is_no_favourite_location
 string title_activity_maps
 string title_activity_settings
 string title_dashboard
@@ -3647,6 +3661,7 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml backup_descriptor
 xml root_preferences
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end

@@ -15,8 +15,7 @@ data class MainFeatures(
     val imageId: Int
     val city: String
     val disc: String
-    val time: String
-    val date: String
+    val timeZone: String
     val feelsLike: Int
     val pressure: Int
     val humidity: Int
@@ -27,9 +26,7 @@ data class MainFeatures(
     val windDegree: Int
 
     init {
-        val cDate = Date(current)
-        val simpleTime = SimpleDateFormat("h:mm a  ", Locale.US)
-        val simpleDate = SimpleDateFormat("dd/ MMM /yyyy\n    EEEE", Locale.getDefault())
+
         if (currentWeather.weatherMain.equals("Thunderstorm")) {
             imageId = R.drawable.thander
         } else if (currentWeather.weatherMain.equals("Drizzle") ||
@@ -39,7 +36,7 @@ data class MainFeatures(
             imageId = R.drawable.rain_ani
 
         } else {
-            val calendar = Calendar.getInstance()
+            val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
             calendar.timeInMillis = current
             val cur = calendar.get(Calendar.HOUR_OF_DAY)
             calendar.timeInMillis = weatherEntity.sunrise
@@ -64,8 +61,7 @@ data class MainFeatures(
         }
         city = weatherEntity.city
         disc = currentWeather.weatherDescription
-        time = simpleTime.format(cDate)
-        date = simpleDate.format(cDate)
+        timeZone =weatherEntity.timeZone
         feelsLike = currentWeather.feels_like
         pressure = currentWeather.pressure
         humidity = currentWeather.humidity

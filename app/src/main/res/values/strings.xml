@@ -46,4 +46,5 @@
     <string name="there_is_no_data">there is no data please set home location from setting</string>
     <string name="weather_state">weather State</string>
     <string name="the_data_is_not_up_to_date">the data is not up to date please connect to internet to update</string>
+    <string name="there_is_no_favourite_location">there is no favourite location</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
@@ -39,7 +40,7 @@
         android:textSize="18sp"
         android:visibility="gone" />
 
-    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".mainScreenUI.home.HomeFragment">
@@ -93,24 +94,25 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageWeatherState"
                     app:layout_constraintVertical_bias="0.363" />
 
-                <TextView
+                <TextClock
                     android:id="@+id/timeViewId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="47dp"
                     android:textSize="18sp"
+                    android:format12Hour="h:mm a"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.921"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
                     app:layout_constraintTop_toBottomOf="@+id/cityViewId" />
 
-                <TextView
+                <TextClock
                     android:id="@+id/dateViewId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="18sp"
-
+                    android:format12Hour="dd/MMM/yyyy \n EEEE"
                     app:layout_constraintEnd_toEndOf="@+id/timeViewId"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
@@ -185,7 +187,7 @@
                     app:drawableEndCompat="@drawable/wind_degree_18"
                     app:drawableTopCompat="@drawable/air_ic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.92"
+                    app:layout_constraintHorizontal_bias="0.944"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -193,11 +195,11 @@
                     android:id="@+id/Humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="28dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/humidity"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.866"
+                    app:layout_constraintHorizontal_bias="0.896"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/wind_degree" />
 
@@ -206,9 +208,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:layout_marginTop="16dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/visibility"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.611"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -222,20 +226,21 @@
                     app:drawableTopCompat="@drawable/ic_baseline_arrow_downward_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintHorizontal_bias="0.611"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/visiablity" />
+                    app:layout_constraintTop_toBottomOf="@+id/visiablity"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/feels_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/temp_ic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.016"
+                    app:layout_constraintHorizontal_bias="0.089"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -243,11 +248,11 @@
                     android:id="@+id/windSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="28dp"
                     android:textSize="18sp"
                     app:drawableTopCompat="@drawable/air_ic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.09"
+                    app:layout_constraintHorizontal_bias="0.111"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/feels_like" />
             </androidx.constraintlayout.widget.ConstraintLayout>

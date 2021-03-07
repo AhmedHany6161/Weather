@@ -1,13 +1,16 @@
 package com.weatherintake41itiahy.weather.mainScreenUI.favorites
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
+import com.weatherintake41itiahy.weather.model.repository.Repository
 
-class FavoritLocationsViewModel : ViewModel() {
+class FavoritLocationsViewModel(application: Application) : AndroidViewModel(application) {
+    val repository: Repository = Repository.getInstance(application)
+    private val liveData: LiveData<List<WeatherEntity>> =
+        repository.getFavoriteLocations().asLiveData()
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    fun getFavorites(): LiveData<List<WeatherEntity>> {
+        return liveData
     }
-    val text: LiveData<String> = _text
 }

@@ -8,7 +8,7 @@ import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Daily
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
 import java.util.*
 
-class WeatherFilterData( val context: Context) {
+class WeatherFilterData(val context: Context) {
     private val preference = PreferenceManager.getDefaultSharedPreferences(context)
     private val degreeUnit = preference.getString("temp_unit", "Celsius")
     private val speedUnit = preference.getString("wind_speed", "meter/s")
@@ -26,13 +26,11 @@ class WeatherFilterData( val context: Context) {
         }
     }
 
-    fun getSpeed(speed: Double) {
-
-    }
 
     fun getImageStateHourly(
+        calendar: Calendar,
         currentWeather: Hourly,
-        sunrise: Long ,
+        sunrise: Long,
         sunset: Long
     ): Int {
         if (currentWeather.weatherMain.equals("Thunderstorm")) {
@@ -44,8 +42,6 @@ class WeatherFilterData( val context: Context) {
             return R.drawable.rain_f_46
 
         } else {
-            val calendar = Calendar.getInstance()
-            Log.e("asasas", "$sunrise $sunset")
             calendar.timeInMillis = currentWeather.time
             val cur = calendar.get(Calendar.HOUR_OF_DAY)
             calendar.timeInMillis = sunrise
@@ -73,7 +69,7 @@ class WeatherFilterData( val context: Context) {
     fun getImageStateDaily(
         currentWeather: Daily,
 
-    ): Int {
+        ): Int {
         if (currentWeather.weatherMain.equals("Thunderstorm")) {
             return R.drawable.thunder_46
         } else if (currentWeather.weatherMain.equals("Drizzle") ||
@@ -92,7 +88,7 @@ class WeatherFilterData( val context: Context) {
         }
     }
 
-    fun getSpeedUnit(speed:Float):String{
-          return "${speed} ${speedUnit}"
+    fun getSpeedUnit(speed: Float): String {
+        return "${speed} ${speedUnit}"
     }
 }

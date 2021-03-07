@@ -8,11 +8,13 @@ import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
 import com.weatherintake41itiahy.weather.model.repository.Repository
 import com.weatherintake41itiahy.weather.screenData.MainFeatures
+import com.weatherintake41itiahy.weather.work.WorkProcess
 import kotlinx.coroutines.*
+import java.util.*
 
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: Repository = Repository(application)
+    private val repository: Repository = Repository.getInstance(application)
     private val liveData: LiveData<WeatherEntity> = repository.geHomeWeather().asLiveData()
     private val job = Job()
     private val mainFeaturesLive: MutableLiveData<MainFeatures> = MutableLiveData()
@@ -30,10 +32,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun showAndHideDaily() {
         visibility = !visibility
-        showAndHideDailyLive.postValue(visibility)
+        showAndHideDailyLive.value = visibility
     }
 
-    fun getDailyVisibilityOfList():LiveData<Boolean>{
+    fun getDailyVisibilityOfList(): LiveData<Boolean> {
         return showAndHideDailyLive
     }
 
@@ -43,21 +45,18 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
             var current: Long
             var currentWeather: Hourly? = null
-            var hour=0
+            var hour = 0
             while (job.isActive) {
-                delay(2000)
+                delay(2500)
                 if (list != null) {
-                    current = System.currentTimeMillis()
+                    val calender = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                    current = calender.timeInMillis
                     for (i in 0..47) {
-                        hour=i
+                        hour = i
                         if (current < (list!![i].time + 3600000)) {
                             currentWeather = list!![i]
                             break
                         }
-                    }
-                    if(hour>1){
-                        val latLng=weatherEntity!!.latLng.split(",")
-                        repository.updateWeatherData(lat = latLng[0],lon = latLng[1],weatherEntity!!.city,true)
                     }
 
                     if (currentWeather != null) {
@@ -68,7 +67,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                                 current
                             )
                         )
-                    }else{
+                    } else {
                         mainFeaturesLive.postValue(
                             MainFeatures(
                                 list!![47],
@@ -78,9 +77,19 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             )
                         )
                     }
+                    if (hour > 24) {
+                        val latLng = weatherEntity!!.latLng.split(",")
+                        WorkProcess.getInstance(getApplication()).updateWeatherData(
+                            latitude = latLng[0],
+                            longitude = latLng[1],
+                            weatherEntity!!.city,
+                            true
+                        )
+
+                    }
                     currentWeather = null
 
-                }else{
+                } else {
                     mainFeaturesLive.postValue(null)
                 }
             }

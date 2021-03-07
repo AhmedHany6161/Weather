@@ -20,10 +20,14 @@ class HourlyAdapter : RecyclerView.Adapter<HourlyAdapter.Holder>() {
     private var list: List<Hourly>? = null
     private var sunrise: Long? = null
     private var sunset: Long? = null
-    fun setData(sunrise: Long, sunset: Long, list: List<Hourly>) {
+    private var timeZone:TimeZone?=null
+    private val calender= Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+
+    fun setData(timeZone: TimeZone,sunrise: Long, sunset: Long, list: List<Hourly>) {
         this.sunrise = sunrise
         this.sunset = sunset
         this.list = list
+        this.timeZone=timeZone
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -36,11 +40,13 @@ class HourlyAdapter : RecyclerView.Adapter<HourlyAdapter.Holder>() {
         private val parent: LinearLayout = itemView.findViewById(R.id.holder_hourly)
         private var imageId: Int = 0
 
-        fun bind(currentWeather: Hourly, sunrise: Long, sunset: Long, context: Context) {
+        fun bind(calender:Calendar,timeZone: TimeZone,currentWeather: Hourly, sunrise: Long, sunset: Long, context: Context) {
             val filter = WeatherFilterData(context)
-            imageId = filter.getImageStateHourly(currentWeather, sunrise, sunset)
-            val cDate = Date(currentWeather.time)
-            val simpleTime = SimpleDateFormat("EEE/h a", Locale.getDefault())
+            calender.timeInMillis=currentWeather.time
+            val cDate = calender.time
+            val simpleTime = SimpleDateFormat("EEE / h a", Locale.getDefault())
+            simpleTime.timeZone = timeZone
+            imageId = filter.getImageStateHourly(calender,currentWeather, sunrise, sunset)
             windSpeed.text = filter.getSpeedUnit(currentWeather.windSpeed)
             image.setImageResource(imageId)
             time.text = simpleTime.format(cDate)
@@ -61,7 +67,7 @@ class HourlyAdapter : RecyclerView.Adapter<HourlyAdapter.Holder>() {
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(list!![position], sunrise!!, sunset!!, context!!)
+        holder.bind(calender,timeZone!!,list!![position], sunrise!!, sunset!!, context!!)
     }
 
     override fun getItemCount(): Int {

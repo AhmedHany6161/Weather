@@ -19,9 +19,10 @@ import java.util.*
 class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
 
     private var list: List<Daily>? = null
-
-    fun setData(list: List<Daily>) {
+    private var timeZone: TimeZone? = null
+    fun setData(list: List<Daily>,timeZone: TimeZone) {
         this.list = list
+        this.timeZone=timeZone
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,12 +38,15 @@ class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
         private val parent: LinearLayout = itemView.findViewById(R.id.daily_parent)
 
         private var imageId: Int = 0
-        fun bind(currentWeather: Daily, context: Context) {
+        fun bind(timeZone: TimeZone,currentWeather: Daily, context: Context) {
             parent.animation = AnimationUtils.loadAnimation(context, R.anim.recycler_anime_up_down)
             val filter = WeatherFilterData(context)
             imageId = filter.getImageStateDaily(currentWeather)
             val simpleTime = SimpleDateFormat("dd/ MMMM \nEEEE", Locale.getDefault())
-            time.text = simpleTime.format(Date(currentWeather.date))
+            val calendar =Calendar.getInstance(timeZone)
+            calendar.timeInMillis=currentWeather.date
+            simpleTime.timeZone=timeZone
+            time.text = simpleTime.format(calendar.time)
             windSpeed.text =  filter.getSpeedUnit(currentWeather.wind_speed)
             image.setImageResource(imageId)
             tempMin.text = filter.getTemp(currentWeather.tempMin)
@@ -63,7 +67,7 @@ class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(list!![position], context!!)
+        holder.bind(timeZone!!,list!![position], context!!)
     }
 
     override fun getItemCount(): Int {

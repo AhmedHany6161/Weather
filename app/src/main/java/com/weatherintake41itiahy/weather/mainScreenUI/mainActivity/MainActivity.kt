@@ -3,6 +3,7 @@ package com.weatherintake41itiahy.weather.mainScreenUI.mainActivity
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
@@ -48,10 +49,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (resultCode == RESULT_OK) {
             val latitude = data?.getStringExtra("Latitude")!!
             val longitude = data.getStringExtra("longitude")!!
-            mainActivityViewModel?.upDateHomeWeather(latitude, longitude)
+            Log.e("request_main", "$requestCode")
+            if (requestCode == 55) {
+                mainActivityViewModel?.upDateHomeWeather(latitude, longitude)
+            } else {
+                mainActivityViewModel?.upDateFavWeather(latitude, longitude)
+            }
         }
 
     }

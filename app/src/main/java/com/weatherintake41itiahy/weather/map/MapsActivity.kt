@@ -2,11 +2,10 @@ package com.weatherintake41itiahy.weather.map
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.location.Address
-import android.location.Geocoder
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -15,10 +14,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.weatherintake41itiahy.weather.R
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -46,14 +43,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     setResult(RESULT_OK, intent)
                     finish()
                 } else {
-                    Log.e(
-                        "aaaaaa", "${preference?.getString("home_location", "none")}${
-                            preference?.getString(
-                                "set_location",
-                                "none"
-                            )
-                        }"
-                    )
+                   Toast.makeText(this@MapsActivity,"please select location",Toast.LENGTH_LONG).show()
                 }
 
             }

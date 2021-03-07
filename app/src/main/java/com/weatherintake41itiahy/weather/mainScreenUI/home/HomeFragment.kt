@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import kotlinx.coroutines.*
 import pl.droidsonroids.gif.GifImageView
+import java.util.*
 import java.util.prefs.Preferences
 
 class HomeFragment : Fragment() {
@@ -35,9 +37,8 @@ class HomeFragment : Fragment() {
         val proNoData: FrameLayout = root.findViewById(R.id.p_no_data)
         val homeData: LinearLayout = root.findViewById(R.id.home_data)
         val texNoData: TextView = root.findViewById(R.id.t_no_data)
-
-        val time: TextView = root.findViewById(R.id.timeViewId)
-        val date: TextView = root.findViewById(R.id.dateViewId)
+        val time: TextClock = root.findViewById(R.id.timeViewId)
+        val date: TextClock = root.findViewById(R.id.dateViewId)
         val imageState: GifImageView = root.findViewById(R.id.imageWeatherState)
         val city: TextView = root.findViewById(R.id.cityViewId)
         val dec: TextView = root.findViewById(R.id.textDescId)
@@ -57,10 +58,6 @@ class HomeFragment : Fragment() {
         val outOfDate: TextView = root.findViewById(R.id.out_of_date)
 
         showAndHideDaily.paintFlags = showAndHideDaily.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        topMain.animation =
-            AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
-        bottomMain.animation =
-            AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
 
 
         val hourlyAdapter = HourlyAdapter()
@@ -76,14 +73,15 @@ class HomeFragment : Fragment() {
         }
         homeViewModel.getMainFeatures().observe(viewLifecycleOwner, {
             if (it != null) {
+
                 homeData.visibility = View.VISIBLE
                 proNoData.visibility = View.GONE
                 texNoData.visibility = View.GONE
                 dec.text = it.disc
                 city.text = it.city
                 imageState.setImageResource(it.imageId)
-                date.text = it.date
-                time.text = it.time
+                date.timeZone = it.timeZone
+                time.timeZone = it.timeZone
                 cloudPercent.text = " ${it.clouds}%"
                 temp.text = filter.getTemp(it.temp)
                 feelLike.text = "${getString(R.string.FeelLike)} ${filter.getTemp(it.feelsLike)}"
@@ -108,9 +106,21 @@ class HomeFragment : Fragment() {
 
         homeViewModel.getWeather().observe(viewLifecycleOwner, {
             if (it != null) {
-                hourlyAdapter.setData(it.sunrise, it.sunset, it.listOfHourly)
+                topMain.animation =
+                    AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
+                bottomMain.animation =
+                    AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
+                hourlyRec.animation =
+                    AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
+
+                hourlyAdapter.setData(
+                    TimeZone.getTimeZone(it.timeZone),
+                    it.sunrise,
+                    it.sunset,
+                    it.listOfHourly
+                )
                 hourlyAdapter.notifyDataSetChanged()
-                dailyAdapter.setData(it.listOfDaily)
+                dailyAdapter.setData(it.listOfDaily, TimeZone.getTimeZone(it.timeZone))
                 dailyAdapter.notifyDataSetChanged()
             }
         })

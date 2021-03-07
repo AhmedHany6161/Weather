@@ -27,7 +27,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 Preference.OnPreferenceClickListener {
                 override fun onPreferenceClick(preference: Preference?): Boolean {
                     val map = Intent(activity, MapsActivity::class.java)
-                    startActivityForResult(map, 55)
+                    requireActivity().startActivityForResult(map, 55)
                     return true
                 }
 

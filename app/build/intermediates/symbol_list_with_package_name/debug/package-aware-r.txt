@@ -69,6 +69,10 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array Alert_for_next
+array Alert_for_next_val
+array Alert_sound_name
+array Alert_sound_value
 array get_location_entries
 array get_location_values
 array reply_entries
@@ -488,6 +492,8 @@ attr foregroundInsidePadding
 attr fragment
 attr framePosition
 attr freezesAnimation
+attr fullscreenBackgroundColor
+attr fullscreenTextColor
 attr gapBetweenBars
 attr gestureInsetBottomIgnored
 attr gifSource
@@ -835,6 +841,7 @@ attr seekBarStyle
 attr selectable
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr selectionMode
 attr selectionRequired
 attr selectorSize
 attr shapeAppearance
@@ -868,6 +875,15 @@ attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
 attr srcCompat
+attr ssv_label_horizontal_offset
+attr ssv_label_text_color
+attr ssv_label_text_size
+attr ssv_label_vertical_offset
+attr ssv_shadow_color
+attr ssv_sun_color
+attr ssv_sun_radius
+attr ssv_track_color
+attr ssv_track_width
 attr stackFromEnd
 attr staggered
 attr startDestination
@@ -1112,6 +1128,7 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color black_overlay
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1125,6 +1142,9 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color checkbox_themeable_attribute_color
+color circle_toggle_button_text_color
+color colorPrimary
+color colorPrimaryDark
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -1136,6 +1156,15 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color dayDeselected
+color dayDeselectedAndDisabled
+color dayDeselectedAndDisabledTextColor
+color dayDeselectedTextColor
+color dayPressed
+color daySelected
+color daySelectedAndDisabled
+color daySelectedAndDisabledTextColor
+color daySelectedTextColor
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1184,6 +1213,12 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light_blue_600
+color light_blue_900
+color light_blue_900_40
+color light_blue_900_50
+color light_blue_A200
+color light_blue_A400
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1271,6 +1306,7 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color notification_material_background_media_default_color
 color preference_fallback_accent_color
 color primary_dark_material_dark
 color primary_dark_material_light
@@ -1290,6 +1326,14 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color snap_time_picker_black
+color snap_time_picker_black_5
+color snap_time_picker_default_accent
+color snap_time_picker_default_primary
+color snap_time_picker_extra_light_gray
+color snap_time_picker_light_gray
+color snap_time_picker_transparent_white
+color snap_time_picker_white
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -1396,6 +1440,8 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen day_button_max_font_size
+dimen day_button_size
 dimen def_drawer_elevation
 dimen default_dimension
 dimen design_appbar_elevation
@@ -1460,6 +1506,8 @@ dimen hint_pressed_alpha_material_light
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
+dimen list_item_spacing
+dimen list_item_spacing_half
 dimen material_clock_display_padding
 dimen material_clock_face_margin_top
 dimen material_clock_hand_center_dot_radius
@@ -1692,7 +1740,32 @@ dimen preference_icon_minWidth
 dimen preference_seekbar_padding_horizontal
 dimen preference_seekbar_padding_vertical
 dimen preference_seekbar_value_minWidth
+dimen snap_time_picker_button_corner_radius
+dimen snap_time_picker_button_minimum_width
+dimen snap_time_picker_dialog_height
+dimen snap_time_picker_dialog_width
+dimen snap_time_picker_divider_size
+dimen snap_time_picker_margin_padding
+dimen snap_time_picker_margin_padding_extra_extra_small
+dimen snap_time_picker_margin_padding_extra_small
+dimen snap_time_picker_margin_padding_large
+dimen snap_time_picker_margin_padding_small
+dimen snap_time_picker_recycler_view_padding_vertical
+dimen snap_time_picker_recycler_view_shadow_height
+dimen snap_time_picker_selected_area_height
+dimen snap_time_picker_slot_width
+dimen snap_time_picker_text_size_extra_extra_large
+dimen snap_time_picker_text_size_extra_large
+dimen snap_time_picker_text_size_extra_small
+dimen snap_time_picker_text_size_large
+dimen snap_time_picker_text_size_medium
+dimen snap_time_picker_text_size_small
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
 dimen test_mtrl_calendar_day_cornerSize
+dimen text_margin
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1790,12 +1863,17 @@ drawable abc_vector_test
 drawable add_location
 drawable air_ic
 drawable air_ic_14
+drawable alarm_add
 drawable anime_background
 drawable avd_hide_password
 drawable avd_show_password
+drawable background_morning0
+drawable background_morning0_1
 drawable background_morning1
 drawable background_morning2
+drawable background_morning2_1
 drawable background_morning3
+drawable bottom_background
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1804,6 +1882,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable check_ic
+drawable circle_toggle_button
 drawable cloud
 drawable cloud_46
 drawable cloud_gg
@@ -1838,6 +1918,8 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit_ic
+drawable edit_ic_30
 drawable fav_location_rec
 drawable fav_rec_25
 drawable favourites_ic
@@ -1859,6 +1941,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
+drawable location_fav
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1869,6 +1952,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable mist_ic
 drawable moon_46
 drawable moon_night
 drawable mtrl_dialog_background
@@ -1881,7 +1965,11 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable nav_background_curved
+drawable nav_item_color_state
 drawable navigation_empty_icon
+drawable no_notifi_ic_30
+drawable notif_ic
+drawable notifi_ic_30
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1901,10 +1989,19 @@ drawable press_ic_24
 drawable rain_ani
 drawable rain_ani_part
 drawable rain_f_46
+drawable rain_ic
 drawable recycler_background
 drawable setting
 drawable setting_home
 drawable setting_unit
+drawable snap_time_picker_selector_button_translucent_black_round
+drawable snap_time_picker_shadow_bottom_translucent_white
+drawable snap_time_picker_shadow_top_translucent_white
+drawable snap_time_picker_shape_background_white
+drawable snap_time_picker_shape_button_disable_round
+drawable snap_time_picker_shape_button_translucent_black_round_pressed
+drawable snap_time_picker_shape_button_transparent_round_normal
+drawable snow_ic
 drawable sunny_anim
 drawable sunny_fff_46_
 drawable temp_ic
@@ -1912,6 +2009,7 @@ drawable temp_ic_14
 drawable test_custom_background
 drawable thander
 drawable thunder_46
+drawable thunder_ic
 drawable time_ic
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1922,12 +2020,14 @@ drawable wid_degree
 drawable wind_18
 drawable wind_degree_18
 id ALT
+id Alert
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
 id HourlyRecHome
 id Humidity
+id LessThan
 id META
 id MaxTemp
 id MinTemp
@@ -1974,6 +2074,8 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
+id action0
+id action_Alert_to_cityPicker
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1981,6 +2083,7 @@ id action_bar_root
 id action_bar_spinner
 id action_bar_subtitle
 id action_bar_title
+id action_cityPicker_to_weatherPicker
 id action_container
 id action_context_bar
 id action_divider
@@ -1991,18 +2094,26 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_text
+id action_weatherPicker_to_alertPref
 id actions
 id activity_chooser_view_content
 id add
+id add_new_alert
 id add_new_location
 id adjust_height
 id adjust_width
+id alertPickTime
+id alertPref
 id alertTitle
+id alert_desc
+id alert_weather_state
+id alerts_rec
 id aligned
 id all
 id always
 id animateToEnd
 id animateToStart
+id anytime
 id asConfigured
 id async
 id auto
@@ -2017,8 +2128,15 @@ id blocking
 id bottom
 id bottom_main_fe
 id bounce
+id btn_edit_alert
+id btn_from
+id btn_notification_alrt
+id btn_to
 id buttonPanel
+id button_cancel
+id button_confirm
 id cache_measures
+id cancel_action
 id cancel_button
 id center
 id center_horizontal
@@ -2034,7 +2152,9 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
+id cityPicker
 id cityViewId
+id city_picker_rec
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2063,6 +2183,7 @@ id dailyTime
 id dailyWind
 id daily_parent
 id dark
+id dataBinding
 id dateViewId
 id date_picker_actions
 id decelerate
@@ -2090,19 +2211,24 @@ id dragRight
 id dragStart
 id dragUp
 id dropdown_menu
+id duration
 id easeIn
 id easeInOut
 id easeOut
+id edit_des
 id edit_query
 id elastic
 id end
 id endToStart
+id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id f_btn_add_alert
 id fade
+id favViewer
 id fav_add_btn
 id fav_fragment_rec
 id fav_p_no_data
@@ -2122,6 +2248,8 @@ id floating
 id forecastFor7days
 id forever
 id fragment_container_view_tag
+id from
+id from_to_and_custom
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2160,6 +2288,7 @@ id labelGroup
 id labeled
 id largeLabel
 id layout
+id layout_time_container
 id left
 id leftToRight
 id light
@@ -2173,6 +2302,7 @@ id main_temp
 id main_temp_rec
 id map
 id masked
+id materialDayPicker
 id material_clock_display
 id material_clock_face
 id material_clock_hand
@@ -2192,6 +2322,7 @@ id material_timepicker_mode_button
 id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
+id media_actions
 id message
 id middle
 id mini
@@ -2202,6 +2333,8 @@ id month_navigation_fragment_toggle
 id month_navigation_next
 id month_navigation_previous
 id month_title
+id moreLessR
+id moreThan
 id motion_base
 id mtrl_anchor_parent
 id mtrl_calendar_day_selector_frame
@@ -2241,8 +2374,11 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id numberPicker
 id off
 id on
+id onAttachStateChangeListener
+id onDateChanged
 id out_of_date
 id outline
 id outward
@@ -2258,15 +2394,26 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id period
+id pickCloud
+id pickMist
+id pickRain
+id pickSnow
+id pickTemp
+id pickThunderStorm
+id pickWind
 id pin
 id position
 id postLayout
+id pre_unit
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
 id recycler_view
+id recycler_view_hour
+id recycler_view_minute
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2313,6 +2460,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id snap_time_picker_barrier_bottom
 id spacer
 id spinner
 id spline
@@ -2330,6 +2478,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id status_bar_latest_event_content
 id stop
 id stretch
 id submenuarrow
@@ -2359,9 +2508,19 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView2
+id textView3
+id textView4
+id textView7
+id textView9
+id textViewNumber
+id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_view_time_prefix
+id text_view_time_suffix
+id text_view_title
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2370,11 +2529,19 @@ id textinput_prefix_text
 id textinput_suffix_text
 id time
 id timeHourRec
+id timeRadio
 id timeViewId
 id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toggle_0
+id toggle_1
+id toggle_2
+id toggle_3
+id toggle_4
+id toggle_5
+id toggle_6
 id top
 id topPanel
 id top_main_fe
@@ -2387,16 +2554,19 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id txt_alert_days
 id unchecked
 id uniform
 id unlabeled
 id up
 id useLogo
 id view_offset_helper
+id view_selected_value_area
 id view_tree_view_model_store_owner
 id visiablity
 id visible
 id visible_removing_fragment_view_tag
+id weatherPicker
 id wide
 id windSpeed
 id windSpeedHourRec
@@ -2470,8 +2640,11 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_maps
+layout alert_co
+layout city_picker_fragment
 layout custom_dialog
 layout daily_co
+layout day_of_the_week_picker
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -2489,10 +2662,15 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout expand_button
 layout fav_co
+layout fragment_alert
+layout fragment_alert_pref
 layout fragment_favorites_locations
 layout fragment_home
+layout fragment_weather_picker
 layout hourly_co
 layout image_frame
+layout layout_snap_time_picker_dialog
+layout layout_snap_time_picker_number_item
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -2537,8 +2715,17 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout notification_action
 layout notification_action_tombstone
+layout notification_media_action
+layout notification_media_cancel_action
+layout notification_template_big_media
+layout notification_template_big_media_custom
+layout notification_template_big_media_narrow
+layout notification_template_big_media_narrow_custom
 layout notification_template_custom_big
 layout notification_template_icon_group
+layout notification_template_lines_media
+layout notification_template_media
+layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout preference
@@ -2580,6 +2767,8 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
 plurals mtrl_badge_content_description
+string AlertSetting
+string Alert_s
 string Celsius
 string Fahrenheit
 string FeelLike
@@ -2612,7 +2801,11 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string add_Alert
 string add_loction
+string add_new_alert
+string alert_sound
+string any_time
 string app_name
 string appbar_scrolling_view_behavior
 string attachment_summary_off
@@ -2624,7 +2817,10 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string choose_days_of_week
 string clear_text_end_icon_content_description
+string cloudiness
+string clouds
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -2644,13 +2840,19 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string copy
+string description
+string dummy_button
+string dummy_content
+string duration
 string error_icon_content_description
 string expand_button_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string favourites
+string from
 string google_maps_key
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string hide_cast_for_7_days
 string humidity
@@ -2658,6 +2860,7 @@ string icon_content_description
 string item_view_role_description
 string kelvin
 string km_hour
+string less_than
 string location
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -2677,6 +2880,8 @@ string material_timepicker_text_input_mode_description
 string messages_header
 string meter_sec
 string miles_hour
+string mist_fog_haze
+string more_than
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
@@ -2715,34 +2920,49 @@ string mtrl_picker_toggle_to_year_selection
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string no_location
+string none
 string not_set
+string notification_s
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string period_of_time
 string preference_copied
 string pressure
+string rain
 string reply_title
 string search_menu_title
+string select_alert_location
 string select_locatin
+string select_weather_state
 string set_message
 string settings
 string show_cast_for_7_days
 string signature_title
+string snap_time_picker_cancel
+string snap_time_picker_confirm
+string snap_time_picker_separator
+string snow
 string status_bar_notification_info_overflow
 string summary_collapsed_preference_list
 string sync_header
 string sync_title
 string temp
+string temperature
 string the_data_is_not_up_to_date
 string there_is_no_data
 string there_is_no_favourite_location
+string thunderstorm
+string time
 string title_activity_maps
 string title_activity_settings
 string title_dashboard
 string title_home
 string title_notifications
+string to
+string turnOn
 string v7_preference_off
 string v7_preference_on
 string weather_state
@@ -2987,6 +3207,7 @@ style MaterialAlertDialog_MaterialComponents_Title_Panel
 style MaterialAlertDialog_MaterialComponents_Title_Panel_CenterStacked
 style MaterialAlertDialog_MaterialComponents_Title_Text
 style MaterialAlertDialog_MaterialComponents_Title_Text_CenterStacked
+style MaterialDayPickerToggle
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents
@@ -3070,6 +3291,11 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
 style ShapeAppearanceOverlay_TopLeftCut
 style ShapeAppearanceOverlay_TopRightDifferentCornerSize
+style SnapTimePicker
+style SnapTimePicker_Button
+style SnapTimePicker_Content
+style SnapTimePicker_HorizontalDivider
+style SnapTimePicker_Title
 style Test_ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style Test_Theme_MaterialComponents_MaterialCalendar
 style Test_Widget_MaterialComponents_MaterialCalendar
@@ -3131,9 +3357,14 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
+style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Line2_Media
+style TextAppearance_Compat_Notification_Media
 style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Time_Media
 style TextAppearance_Compat_Notification_Title
+style TextAppearance_Compat_Notification_Title_Media
 style TextAppearance_Design_CollapsingToolbar_Expanded
 style TextAppearance_Design_Counter
 style TextAppearance_Design_Counter_Overflow
@@ -3245,6 +3476,8 @@ style Theme_MaterialComponents_NoActionBar_Bridge
 style Theme_Weather
 style Theme_Weather_MainActivity
 style Theme_Weather_alert
+style Theme_Weather_app_bar
+style Theme_Weather_dropDown
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark
@@ -3294,6 +3527,7 @@ style ThemeOverlay_MaterialComponents_TimePicker
 style ThemeOverlay_MaterialComponents_TimePicker_Display
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style ThemeOverlay_Weather_FullscreenContainer
 style ThemeOverlayColorAccentRed
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
@@ -3496,6 +3730,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style Widget_Theme_Weather_ButtonBar_Fullscreen
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -3556,6 +3791,7 @@ styleable ForegroundLinearLayout android_foreground android_foregroundGravity fo
 styleable Fragment android_name android_id android_tag
 styleable FragmentContainerView android_name android_tag
 styleable FragmentNavigator android_name
+styleable FullscreenAttrs fullscreenBackgroundColor fullscreenTextColor
 styleable GifTextureView gifSource isOpaque
 styleable GifView freezesAnimation loopCount
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
@@ -3587,6 +3823,7 @@ styleable MaterialCalendar android_windowFullscreen dayInvalidStyle daySelectedS
 styleable MaterialCalendarItem android_insetLeft android_insetRight android_insetTop android_insetBottom itemFillColor itemShapeAppearance itemShapeAppearanceOverlay itemStrokeColor itemStrokeWidth itemTextColor
 styleable MaterialCardView android_checkable cardForegroundColor checkedIcon checkedIconMargin checkedIconSize checkedIconTint rippleColor shapeAppearance shapeAppearanceOverlay state_dragged strokeColor strokeWidth
 styleable MaterialCheckBox buttonTint useMaterialThemeColors
+styleable MaterialDayPicker selectionMode
 styleable MaterialRadioButton buttonTint useMaterialThemeColors
 styleable MaterialShape shapeAppearance shapeAppearanceOverlay
 styleable MaterialTextAppearance android_letterSpacing android_lineHeight lineHeight
@@ -3642,6 +3879,7 @@ styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
 styleable StateSet defaultState
+styleable SunriseSunsetView ssv_label_horizontal_offset ssv_label_text_color ssv_label_text_size ssv_label_vertical_offset ssv_shadow_color ssv_sun_color ssv_sun_radius ssv_track_color ssv_track_width
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable SwitchPreference android_summaryOn android_summaryOff android_disableDependentsState android_switchTextOn android_switchTextOff disableDependentsState summaryOff summaryOn switchTextOff switchTextOn

@@ -20,5 +20,45 @@
         android:id="@+id/settingsFragment"
         android:name="com.weatherintake41itiahy.weather.mainScreenUI.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/favViewer"
+        android:name="com.weatherintake41itiahy.weather.mainScreenUI.favViewer.FavViewer"
+        android:label="fav_viewer_fragment"
+        tools:layout="@layout/fragment_favorites_locations" />
+    <fragment
+        android:id="@+id/Alert"
+        android:name="com.weatherintake41itiahy.weather.alert.Alert"
+        android:label="fragment_Alert"
+        tools:layout="@layout/fragment_alert" >
+        <action
+            android:id="@+id/action_Alert_to_cityPicker"
+            app:destination="@id/cityPicker"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityPicker"
+        android:name="com.weatherintake41itiahy.weather.alert.cityPicker.CityPicker"
+        android:label="city_picker_fragment"
+        tools:layout="@layout/city_picker_fragment" >
+        <action
+            android:id="@+id/action_cityPicker_to_weatherPicker"
+            app:destination="@id/weatherPicker"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherPicker"
+        android:name="com.weatherintake41itiahy.weather.alert.weatherPicker.weatherPicker"
+        android:label="fragment_weather_picker"
+        tools:layout="@layout/fragment_weather_picker" >
+        <action
+            android:id="@+id/action_weatherPicker_to_alertPref"
+            app:destination="@id/alertPref"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/alertPref"
+        android:name="com.weatherintake41itiahy.weather.alert.alertPref.AlertPref"
+        android:label="fragment_alert_pref"
+        tools:layout="@layout/fragment_alert_pref" />
 
 </navigation>

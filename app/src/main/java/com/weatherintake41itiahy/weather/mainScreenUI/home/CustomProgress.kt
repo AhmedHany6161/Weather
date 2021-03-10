@@ -41,7 +41,7 @@ class CustomProgress : View {
         val paint = Paint()
 
         //set the color for the dot that you want to draw
-        paint.setColor(Color.parseColor("#e7f9ff"))
+        paint.setColor(Color.parseColor("#ffd600"))
 
         //function to create dot
         createDot(canvas, paint)

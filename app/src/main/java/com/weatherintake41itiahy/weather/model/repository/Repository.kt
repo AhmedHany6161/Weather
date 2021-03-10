@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.weatherintake41itiahy.weather.model.entity.AlertEntity
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Daily
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
 import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
@@ -68,8 +69,16 @@ class Repository private constructor(application: Application) {
         return weatherDAO.getHomeWeather()
     }
 
+    fun getAllAlerts(): Flow<List<AlertEntity>> {
+        return weatherDAO.getAllAlerts()
+    }
+
     fun getFavoriteLocations(): Flow<List<WeatherEntity>> {
         return weatherDAO.getFavoriteWeather()
+    }
+
+    fun getAllWeather(): Flow<List<WeatherEntity>> {
+        return weatherDAO.getAllWeather()
     }
 
     suspend fun deleteItem(weatherEntity: WeatherEntity) {
@@ -82,6 +91,12 @@ class Repository private constructor(application: Application) {
 
     }
 
+    suspend fun setAlert(alertEntity: AlertEntity) {
+        weatherDAO.setAlert(alertEntity)
+    }
+     suspend fun updateAlert(alertEntity: AlertEntity){
+         weatherDAO.updateAlert(alertEntity)
+     }
     private suspend fun deleteHome() {
         weatherDAO.deleteHome()
 

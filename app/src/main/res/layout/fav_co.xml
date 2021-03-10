@@ -4,49 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:weightSum="5"
     android:background="@drawable/recycler_background"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:weightSum="5">
 
 
     <TextView
         android:id="@+id/fav_rec_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        android:layout_weight="3"
         android:layout_gravity="center_vertical"
-        app:drawableStartCompat="@drawable/fav_location_rec"
-         />
+        android:layout_margin="10dp"
+        android:layout_weight="3.3"
+        android:text="@string/app_name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/location_fav" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1.7"
         android:orientation="vertical">
 
         <TextClock
             android:id="@+id/fav_rec_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_gravity="end"
+            android:layout_marginVertical="5dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/app_name"
+            android:textSize="14sp"
 
-            android:textSize="18sp"
-            />
+            android:textStyle="bold" />
 
         <TextClock
             android:id="@+id/fav_rec_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="23dp"
-            android:format12Hour="dd/MMM/yyyy \n EEEE"
+            android:layout_gravity="end"
+            android:layout_marginVertical="5dp"
+            android:layout_marginEnd="16dp"
+            android:format12Hour="dd/MMM/yyyy"
             android:text="@string/app_name"
-            android:textSize="18sp"
-             />
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

@@ -8,18 +8,19 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.tianma8023.model.Time
+import com.github.tianma8023.ssv.SunriseSunsetView
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import kotlinx.coroutines.*
 import pl.droidsonroids.gif.GifImageView
 import java.util.*
-import java.util.prefs.Preferences
+
 
 class HomeFragment : Fragment() {
 
@@ -50,7 +51,7 @@ class HomeFragment : Fragment() {
         val hum: TextView = root.findViewById(R.id.Humidity)
         val feelLike: TextView = root.findViewById(R.id.feels_like)
         val topMain: ConstraintLayout = root.findViewById(R.id.top_main_fe)
-        val bottomMain: ConstraintLayout = root.findViewById(R.id.bottom_main_fe)
+        val bottomMain: GridLayout = root.findViewById(R.id.bottom_main_fe)
         val filter = WeatherFilterData(requireContext())
         val hourlyRec: RecyclerView = root.findViewById(R.id.HourlyRecHome)
         val dailyRec: RecyclerView = root.findViewById(R.id.dailyRecHome)
@@ -73,7 +74,14 @@ class HomeFragment : Fragment() {
         }
         homeViewModel.getMainFeatures().observe(viewLifecycleOwner, {
             if (it != null) {
-
+                if (!homeData.isVisible) {
+                    topMain.animation =
+                        AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
+                    bottomMain.animation =
+                        AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
+                    hourlyRec.animation =
+                        AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
+                }
                 homeData.visibility = View.VISIBLE
                 proNoData.visibility = View.GONE
                 texNoData.visibility = View.GONE
@@ -106,12 +114,6 @@ class HomeFragment : Fragment() {
 
         homeViewModel.getWeather().observe(viewLifecycleOwner, {
             if (it != null) {
-                topMain.animation =
-                    AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
-                bottomMain.animation =
-                    AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
-                hourlyRec.animation =
-                    AnimationUtils.loadAnimation(context, R.anim.main_screen_anim_left_right)
 
                 hourlyAdapter.setData(
                     TimeZone.getTimeZone(it.timeZone),
@@ -124,6 +126,7 @@ class HomeFragment : Fragment() {
                 dailyAdapter.notifyDataSetChanged()
             }
         })
+
 
 
 

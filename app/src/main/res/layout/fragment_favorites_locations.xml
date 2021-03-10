@@ -46,7 +46,6 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fav_add_btn"
-        style="@style/Theme.MaterialComponents.DayNight.Dialog.MinWidth.Bridge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/add_location"
@@ -55,5 +54,9 @@
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#3318FFFF"
+        app:rippleColor="#3318FFFF"
+        app:fabCustomSize="25dp"
+        app:maxImageSize="50dp"
         app:layout_constraintVertical_bias="0.97" />
 </androidx.constraintlayout.widget.ConstraintLayout>

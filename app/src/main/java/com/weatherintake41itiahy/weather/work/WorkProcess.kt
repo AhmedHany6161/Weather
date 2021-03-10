@@ -1,7 +1,9 @@
 package com.weatherintake41itiahy.weather.work
 
 import android.app.Application
+import androidx.preference.PreferenceManager
 import androidx.work.*
+import java.util.concurrent.TimeUnit
 
 class WorkProcess private constructor(application: Application) {
     private val workManager = WorkManager
@@ -17,7 +19,7 @@ class WorkProcess private constructor(application: Application) {
         }
     }
 
-    fun updateWeatherData(latitude: String, longitude: String, city: String?, isHome:Boolean) {
+    fun updateWeatherData(latitude: String, longitude: String, city: String?, isHome: Boolean) {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
@@ -33,5 +35,22 @@ class WorkProcess private constructor(application: Application) {
                 .setInputData(data.build())
                 .build()
         workManager.enqueueUniqueWork("updateHome", ExistingWorkPolicy.REPLACE, updateHome)
+    }
+
+
+
+    fun setAlert(initTime: Long,rep:Long) {
+        val alertWork = PeriodicWorkRequestBuilder<WeatherAlertWork>(
+            rep, TimeUnit.SECONDS,
+        ).setInitialDelay(initTime, TimeUnit.MINUTES)
+            .build()
+        workManager.enqueueUniquePeriodicWork(
+            "weather_alert",
+            ExistingPeriodicWorkPolicy.REPLACE, alertWork
+        )
+    }
+
+    fun cancelAlert() {
+        workManager.cancelUniqueWork("weather_alert")
     }
 }

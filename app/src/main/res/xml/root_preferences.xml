@@ -1,23 +1,23 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         app:icon="@drawable/setting_home"
         app:title="@string/select_locatin">
         <ListPreference
-            app:icon="@drawable/ic_baseline_home_24"
+            app:defaultValue="Select Manually"
             app:entries="@array/get_location_entries"
             app:entryValues="@array/get_location_values"
+            app:icon="@drawable/ic_baseline_home_24"
             app:key="home_location"
             app:persistent="true"
             app:summary="%s"
-            app:defaultValue="Select Manually"
             app:title="@string/set_message"
             app:useSimpleSummaryProvider="true" />
         <Preference
-            app:icon="@drawable/add_location"
-            app:defaultValue="none"
             android:persistent="true"
+            app:defaultValue="none"
+            app:icon="@drawable/add_location"
             app:key="set_location"
             app:title="@string/location"
             app:useSimpleSummaryProvider="true" />
@@ -25,56 +25,61 @@
     <PreferenceCategory
         app:icon="@drawable/setting_unit"
         app:title="@string/Units">
-        <ListPreference
-            app:icon="@drawable/temp_ic"
+        <DropDownPreference
             app:defaultValue="Celsius"
             app:entries="@array/units_temp_name"
             app:entryValues="@array/units_temp_value"
+            app:icon="@drawable/temp_ic"
             app:key="temp_unit"
             app:persistent="true"
             app:title="@string/temp"
             app:useSimpleSummaryProvider="true" />
-        <ListPreference
-            app:icon="@drawable/air_ic"
+        <DropDownPreference
             app:defaultValue="meter/sec"
             app:entries="@array/units_wind_name"
             app:entryValues="@array/units_wind_value"
+            app:icon="@drawable/air_ic"
             app:key="wind_speed"
             app:persistent="true"
             app:title="@string/wind_speed"
 
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/messages_header">
 
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
+    <PreferenceCategory app:title="Home Alert">
+        <SwitchPreferenceCompat
+            app:key="alert_on"
+            app:title="@string/turnOn" />
+    <PreferenceCategory app:title="@string/AlertSetting"
+        app:key="alert_setting"
+        >
+        <DropDownPreference
+            app:defaultValue="Alert sound"
+            app:entries="@array/Alert_sound_name"
+            app:entryValues="@array/Alert_sound_value"
+            app:key="Alert_sound"
+            app:persistent="true"
+            app:title="@string/alert_sound"
             app:useSimpleSummaryProvider="true" />
 
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+        <DropDownPreference
+            app:defaultValue="86400"
+            app:entries="@array/Alert_for_next"
+            app:entryValues="@array/Alert_for_next_val"
+            app:key="alert_for_next"
+            app:persistent="true"
+            app:title="for next"
             app:useSimpleSummaryProvider="true" />
 
+
+        <Preference
+            android:persistent="true"
+            app:defaultValue="none"
+            app:icon="@drawable/alarm_add"
+            app:key="set_Alert"
+            app:title="@string/add_Alert"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-    <PreferenceCategory app:title="@string/sync_header">
-
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
     </PreferenceCategory>
-
 
 </PreferenceScreen>

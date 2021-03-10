@@ -14,8 +14,10 @@ import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -43,7 +45,7 @@ class FavoritLocationsFragment : Fragment() {
         val customP: FrameLayout = root.findViewById(R.id.fav_p_no_data)
 
         rec.layoutManager = LinearLayoutManager(context)
-        val adapter = FavAdapter()
+        val adapter = FavAdapter(favoriteLocationsViewModel)
         rec.adapter = adapter
         favoriteLocationsViewModel.getFavorites().observe(viewLifecycleOwner, {
             if (!it.isNullOrEmpty()) {
@@ -64,6 +66,13 @@ class FavoritLocationsFragment : Fragment() {
                 Toast.makeText(context, "no internet connection", Toast.LENGTH_LONG).show()
             }
         }
+        favoriteLocationsViewModel.getFavObjectIntent().observe(viewLifecycleOwner,{
+            if(it!=null){
+                 val b: Bundle= bundleOf("data" to it)
+                 findNavController().navigate(R.id.favViewer,b)
+                favoriteLocationsViewModel.reset()
+            }
+        })
         return root
     }
 

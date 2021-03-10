@@ -31,13 +31,15 @@ public final class OfflineDatabase_Impl extends OfflineDatabase {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `WeatherEntity` (`city` TEXT NOT NULL, `latLng` TEXT NOT NULL, `sunrise` INTEGER NOT NULL, `sunset` INTEGER NOT NULL, `timeZone` TEXT NOT NULL, `isTheCurrent` INTEGER NOT NULL, `listOfHourly` TEXT NOT NULL, `listOfDaily` TEXT NOT NULL, PRIMARY KEY(`city`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `AlertEntity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `city` TEXT NOT NULL, `weatherState` TEXT NOT NULL, `from` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `desc` TEXT NOT NULL, `listDays` TEXT NOT NULL, `more` INTEGER NOT NULL, `notify` INTEGER NOT NULL, `unitCount` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6b1b2c7edc8986250f53b4047867fdb8')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2b11c38e52e785d2c699c22a858343fe')");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `WeatherEntity`");
+        _db.execSQL("DROP TABLE IF EXISTS `AlertEntity`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -94,9 +96,29 @@ public final class OfflineDatabase_Impl extends OfflineDatabase {
                   + " Expected:\n" + _infoWeatherEntity + "\n"
                   + " Found:\n" + _existingWeatherEntity);
         }
+        final HashMap<String, TableInfo.Column> _columnsAlertEntity = new HashMap<String, TableInfo.Column>(10);
+        _columnsAlertEntity.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("city", new TableInfo.Column("city", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("weatherState", new TableInfo.Column("weatherState", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("from", new TableInfo.Column("from", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("duration", new TableInfo.Column("duration", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("desc", new TableInfo.Column("desc", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("listDays", new TableInfo.Column("listDays", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("more", new TableInfo.Column("more", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("notify", new TableInfo.Column("notify", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsAlertEntity.put("unitCount", new TableInfo.Column("unitCount", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysAlertEntity = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesAlertEntity = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoAlertEntity = new TableInfo("AlertEntity", _columnsAlertEntity, _foreignKeysAlertEntity, _indicesAlertEntity);
+        final TableInfo _existingAlertEntity = TableInfo.read(_db, "AlertEntity");
+        if (! _infoAlertEntity.equals(_existingAlertEntity)) {
+          return new RoomOpenHelper.ValidationResult(false, "AlertEntity(com.weatherintake41itiahy.weather.model.entity.AlertEntity).\n"
+                  + " Expected:\n" + _infoAlertEntity + "\n"
+                  + " Found:\n" + _existingAlertEntity);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "6b1b2c7edc8986250f53b4047867fdb8", "f93e8f73a46cbac4b29e3c591421eccb");
+    }, "2b11c38e52e785d2c699c22a858343fe", "8c74f60d404a42a2ed3bccff8a5b48b8");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -109,7 +131,7 @@ public final class OfflineDatabase_Impl extends OfflineDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "WeatherEntity");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "WeatherEntity","AlertEntity");
   }
 
   @Override
@@ -119,6 +141,7 @@ public final class OfflineDatabase_Impl extends OfflineDatabase {
     try {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `WeatherEntity`");
+      _db.execSQL("DELETE FROM `AlertEntity`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();

@@ -42,7 +42,7 @@ class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
             parent.animation = AnimationUtils.loadAnimation(context, R.anim.recycler_anime_up_down)
             val filter = WeatherFilterData(context)
             imageId = filter.getImageStateDaily(currentWeather)
-            val simpleTime = SimpleDateFormat("dd/ MMMM \nEEEE", Locale.getDefault())
+            val simpleTime = SimpleDateFormat("dd / MMMM", Locale.getDefault())
             val calendar =Calendar.getInstance(timeZone)
             calendar.timeInMillis=currentWeather.date
             simpleTime.timeZone=timeZone

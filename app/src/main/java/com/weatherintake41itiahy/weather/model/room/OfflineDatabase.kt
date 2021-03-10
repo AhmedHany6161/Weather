@@ -4,9 +4,10 @@ import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.weatherintake41itiahy.weather.model.entity.AlertEntity
 import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 
-@Database(entities = arrayOf(WeatherEntity::class), version = 1 , exportSchema = false)
+@Database(entities = [WeatherEntity::class, AlertEntity::class], version = 1 , exportSchema = false)
  abstract class OfflineDatabase : RoomDatabase() {
     abstract fun WeatherDAO(): WeatherDAO
     companion object {

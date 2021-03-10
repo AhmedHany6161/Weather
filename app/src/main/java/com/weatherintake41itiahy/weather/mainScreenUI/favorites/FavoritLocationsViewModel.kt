@@ -6,11 +6,24 @@ import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 import com.weatherintake41itiahy.weather.model.repository.Repository
 
 class FavoritLocationsViewModel(application: Application) : AndroidViewModel(application) {
-    val repository: Repository = Repository.getInstance(application)
+   private val repository: Repository = Repository.getInstance(application)
+   private var openFav:MutableLiveData<WeatherEntity> = MutableLiveData()
     private val liveData: LiveData<List<WeatherEntity>> =
         repository.getFavoriteLocations().asLiveData()
 
     fun getFavorites(): LiveData<List<WeatherEntity>> {
         return liveData
+    }
+
+    fun onPassData(weatherEntity: WeatherEntity) {
+        openFav.value = weatherEntity
+    }
+
+    fun reset(){
+        openFav.value=null
+    }
+
+    fun getFavObjectIntent():LiveData<WeatherEntity>{
+        return openFav
     }
 }

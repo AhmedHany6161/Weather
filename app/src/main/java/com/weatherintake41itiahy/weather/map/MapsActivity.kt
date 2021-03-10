@@ -56,7 +56,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.uiSettings.isRotateGesturesEnabled = true
         googleMap.uiSettings.isScrollGesturesEnabled = true
         googleMap.uiSettings.isTiltGesturesEnabled = true
-
+         googleMap.mapType=GoogleMap.MAP_TYPE_HYBRID
         googleMap.setOnMapClickListener {
             googleMap.clear()
             latLng = it

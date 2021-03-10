@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="50dp"
+    android:background="@drawable/recycler_background"
+    android:orientation="vertical"
+    tools:context=".alert.weatherPicker.weatherPicker">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/pickRain"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/rain_ic"
+            android:text="@string/rain"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/pickTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/temp_ic"
+            android:text="@string/temperature"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/pickWind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/air_ic"
+            android:text="@string/wind_speed"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/pickMist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/mist_ic"
+            android:text="@string/mist_fog_haze"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/pickSnow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/snow_ic"
+            android:text="@string/snow"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/pickCloud"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/cloud_ic"
+            android:text="@string/cloudiness"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/pickThunderStorm"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="#0303A9F4"
+            android:drawableLeft="@drawable/thunder_ic"
+            android:text="@string/thunderstorm"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</ScrollView>

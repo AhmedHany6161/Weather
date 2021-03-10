@@ -36,13 +36,14 @@ class MainActivity : AppCompatActivity() {
 
         mainActivityViewModel =
             ViewModelProvider(this).get(MainActivityViewModel::class.java)
+
         setAnimated()
     }
 
     private fun setAnimated() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.main_container)
         val animationDrawable = constraintLayout.background as AnimationDrawable
-        animationDrawable.setEnterFadeDuration(2000)
+        animationDrawable.setEnterFadeDuration(0)
         animationDrawable.setExitFadeDuration(4000)
         animationDrawable.start()
     }

@@ -18,7 +18,7 @@ import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import java.text.SimpleDateFormat
 import java.util.*
 
-class FavAdapter: RecyclerView.Adapter<FavAdapter.Holder>() {
+class FavAdapter(val favoriteLocationsViewModel: FavoritLocationsViewModel): RecyclerView.Adapter<FavAdapter.Holder>() {
 
     private var list: List<WeatherEntity>? = null
 
@@ -32,12 +32,15 @@ class FavAdapter: RecyclerView.Adapter<FavAdapter.Holder>() {
         private val time: TextClock = itemView.findViewById(R.id.fav_rec_time)
         private val date: TextClock = itemView.findViewById(R.id.fav_rec_date)
 
-        fun bind(currentWeather: WeatherEntity,context:Context) {
+        fun bind(currentWeather: WeatherEntity,context:Context,favoriteLocationsViewModel: FavoritLocationsViewModel) {
             name.text = currentWeather.city
             time.timeZone = currentWeather.timeZone
             date.timeZone =  currentWeather.timeZone
             itemView.animation =
                 AnimationUtils.loadAnimation(context, R.anim.item_animation_fall_down)
+            itemView.setOnClickListener {
+                favoriteLocationsViewModel.onPassData(currentWeather)
+            }
         }
     }
 
@@ -51,7 +54,7 @@ class FavAdapter: RecyclerView.Adapter<FavAdapter.Holder>() {
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(list!![position],context!!)
+        holder.bind(list!![position],context!!,favoriteLocationsViewModel)
     }
 
     override fun getItemCount(): Int {

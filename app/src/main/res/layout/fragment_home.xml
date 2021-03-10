@@ -12,7 +12,8 @@
         android:id="@+id/p_no_data"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:visibility="visible">
 
         <com.weatherintake41itiahy.weather.mainScreenUI.home.CustomProgress
             android:layout_width="wrap_content"
@@ -50,33 +51,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/top_main_fe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
                 android:background="@drawable/recycler_background">
 
                 <pl.droidsonroids.gif.GifImageView
                     android:id="@+id/imageWeatherState"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="8dp"
+                    android:src="@drawable/moon_night"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintHorizontal_bias="0.083"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cityViewId"
-                    app:layout_constraintVertical_bias="0.105" />
+                    app:layout_constraintVertical_bias="0.111" />
 
                 <TextView
                     android:id="@+id/cityViewId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="24sp"
+                    android:text="@string/app_name"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -85,34 +90,43 @@
                     android:id="@+id/textDescId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/app_name"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.03"
+                    app:layout_constraintHorizontal_bias="0.025"
                     app:layout_constraintStart_toStartOf="@+id/imageWeatherState"
                     app:layout_constraintTop_toBottomOf="@+id/imageWeatherState"
-                    app:layout_constraintVertical_bias="0.363" />
+                    app:layout_constraintVertical_bias="0.111" />
 
                 <TextClock
                     android:id="@+id/timeViewId"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="47dp"
-                    android:textSize="18sp"
+                    android:layout_marginTop="24dp"
                     android:format12Hour="h:mm a"
+                    android:text="@string/app_name"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.921"
+                    app:layout_constraintHorizontal_bias="0.92"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
                     app:layout_constraintTop_toBottomOf="@+id/cityViewId" />
 
                 <TextClock
                     android:id="@+id/dateViewId"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="18sp"
                     android:format12Hour="dd/MMM/yyyy \n EEEE"
+                    android:text="@string/app_name"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/timeViewId"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
@@ -123,24 +137,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textSize="24sp"
+                    android:text="@string/app_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:drawableLeftCompat="@drawable/cloud_ic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/main_temp"
                     app:layout_constraintTop_toBottomOf="@+id/main_temp"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.125" />
 
                 <TextView
                     android:id="@+id/main_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:textSize="26sp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/app_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:drawableLeftCompat="@drawable/temp_ic"
                     app:layout_constraintEnd_toStartOf="@+id/timeViewId"
-                    app:layout_constraintHorizontal_bias="0.187"
+                    app:layout_constraintHorizontal_bias="0.22"
                     app:layout_constraintStart_toEndOf="@+id/imageWeatherState"
                     app:layout_constraintTop_toBottomOf="@+id/cityViewId" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -150,14 +168,16 @@
                 android:id="@+id/HourlyRecHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
                 android:background="#00000000" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/dailyRecHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
                 android:background="#00000000"
                 android:visibility="gone" />
 
@@ -165,97 +185,104 @@
                 android:id="@+id/forecastFor7days"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="#1A00BFFF"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:background="#0303A9F4"
                 android:text="@string/show_cast_for_7_days"
                 android:textColor="@color/white" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+          
+            <GridLayout
                 android:id="@+id/bottom_main_fe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/recycler_background">
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/bottom_background"
+                android:columnCount="2"
+                android:rowCount="3">
 
                 <TextView
                     android:id="@+id/wind_degree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginTop="8dp"
-                    android:textSize="18sp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@drawable/wind_degree_18"
-                    app:drawableTopCompat="@drawable/air_ic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.944"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:drawableTopCompat="@drawable/air_ic" />
 
                 <TextView
                     android:id="@+id/Humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
-                    android:textSize="18sp"
-                    app:drawableTopCompat="@drawable/humidity"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.896"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/wind_degree" />
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/humidity" />
 
                 <TextView
                     android:id="@+id/visiablity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginTop="16dp"
-                    android:textSize="18sp"
-                    app:drawableTopCompat="@drawable/visibility"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.611"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/visibility" />
 
                 <TextView
                     android:id="@+id/Pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="5dp"
-                    android:textSize="18sp"
-                    app:drawableTopCompat="@drawable/ic_baseline_arrow_downward_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.611"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/visiablity"
-                    app:layout_constraintVertical_bias="0.0" />
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/ic_baseline_arrow_downward_24" />
 
                 <TextView
                     android:id="@+id/feels_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginTop="8dp"
-                    android:textSize="18sp"
-                    app:drawableTopCompat="@drawable/temp_ic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.089"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:drawableTopCompat="@drawable/temp_ic" />
 
                 <TextView
                     android:id="@+id/windSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
-                    android:textSize="18sp"
-                    app:drawableTopCompat="@drawable/air_ic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.111"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/feels_like" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+
+                    app:drawableTopCompat="@drawable/air_ic" />
+            </GridLayout>
 
         </LinearLayout>
 

@@ -13,6 +13,8 @@
         android:id="@+id/timeHourRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:text="TextView" />
 
@@ -21,6 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="14sp"
         android:text="Text" />
 
     <ImageView
@@ -36,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Text"
+        android:textSize="14sp"
         app:drawableLeftCompat="@drawable/temp_ic_14" />
 
     <TextView
@@ -44,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
+        android:textSize="14sp"
+
         android:text="Text"
         app:drawableStartCompat="@drawable/cloud_ic_14" />
 
@@ -52,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:textSize="14sp"
         android:text="Text"
         app:drawableLeftCompat="@drawable/air_ic_14" />
 

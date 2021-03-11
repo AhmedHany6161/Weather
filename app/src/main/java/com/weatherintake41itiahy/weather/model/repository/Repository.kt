@@ -145,4 +145,13 @@ class Repository private constructor(application: Application) {
             )
         }
     }
+
+    suspend fun getAllAlertsValue():List<AlertEntity>{
+        return weatherDAO.getAllAlertsVal()
+    }
+
+    suspend fun getWeatherById(city: String):WeatherEntity{
+      return  weatherDAO.getWeatherVal(city)
+    }
+
 }

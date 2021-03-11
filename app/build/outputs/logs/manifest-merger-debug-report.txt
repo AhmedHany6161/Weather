@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
 MERGED from [androidx.databinding:databinding-adapters:4.1.2] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\edfb8a7198207832441be460b0bd0aba\databinding-adapters-4.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:4.1.2] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\842407d92d2964982601aba009e268db\databinding-runtime-4.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.room:room-ktx:2.2.6] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\2f5a240e31b7460d2d92c0a8e7eb75a0\jetified-room-ktx-2.2.6\AndroidManifest.xml:17:1-24:12
@@ -82,22 +82,22 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ahmed\.gradle\ca
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\258fa27d6ce4fb06392c49a9ce083fed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\14a5eeb387199911b98187ed28662f66\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [pl.droidsonroids:relinker:1.3.1] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\d86cf2bd87f9d5b5a0e6f7ad9de2c91a\jetified-relinker-1.3.1\AndroidManifest.xml:2:1-7:12
-INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
 	package
 		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:4:5-48
 		INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
 		INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-54:12
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:1-55:12
 		INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:2:11-69
@@ -123,8 +123,12 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ahmed\.g
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\a21e120e299d7ca871fcaeacedde50a5\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 	android:name
 		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:14:22-78
 application
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:15:5-52:19
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:16:5-53:19
 MERGED from [androidx.work:work-multiprocess:2.5.0] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\3bab687067314da567337877c457be1d\jetified-work-multiprocess-2.5.0\AndroidManifest.xml:24:5-28:19
 MERGED from [androidx.work:work-multiprocess:2.5.0] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\3bab687067314da567337877c457be1d\jetified-work-multiprocess-2.5.0\AndroidManifest.xml:24:5-28:19
 MERGED from [androidx.work:work-runtime:2.5.0] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\0e655494dbbcb3f998b2019352e49a09\work-runtime-2.5.0\AndroidManifest.xml:30:5-141:19
@@ -154,51 +158,55 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ah
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.2] C:\Users\ahmed\.gradle\caches\transforms-2\files-2.1\1214a77393508826b51992a0843a37aa\core-1.3.2\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:21:9-35
 	android:label
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:18:9-41
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:19:9-41
 	tools:ignore
 		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:23:9-35
 	android:roundIcon
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:19:9-54
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:20:9-54
 	android:icon
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:17:9-43
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:18:9-43
 	android:allowBackup
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:17:9-35
 	android:theme
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:21:9-45
-meta-data#com.google.android.geo.API_KEY
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:32:9-34:55
-	android:value
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:34:13-52
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:22:9-45
+activity#com.weatherintake41itiahy.weather.Splash
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:24:9-30:20
 	android:name
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:33:13-58
-activity#com.weatherintake41itiahy.weather.map.MapsActivity
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:36:9-41:20
-	android:label
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:38:13-56
-	android:theme
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:39:13-66
-	android:name
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:37:13-45
-activity#com.weatherintake41itiahy.weather.mainScreenUI.mainActivity.MainActivity
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:42:9-51:20
-	android:label
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:44:13-45
-	android:theme
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:45:13-62
-	android:name
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:43:13-67
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:24:19-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:46:13-50:29
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:47:17-69
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:47:25-66
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:49:17-77
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:49:27-74
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:28:27-74
+meta-data#com.google.android.geo.API_KEY
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:39:9-41:55
+	android:value
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:41:13-52
+	android:name
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:40:13-58
+activity#com.weatherintake41itiahy.weather.map.MapsActivity
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:43:9-46:78
+	android:label
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:45:13-56
+	android:theme
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:46:13-66
+	android:name
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:44:13-45
+activity#com.weatherintake41itiahy.weather.mainScreenUI.mainActivity.MainActivity
+ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:47:9-52:20
+	android:label
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:49:13-45
+	android:theme
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:50:13-62
+	android:name
+		ADDED from D:\Weather2\app\src\main\AndroidManifest.xml:48:13-67
 uses-sdk
 INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Weather2\app\src\main\AndroidManifest.xml

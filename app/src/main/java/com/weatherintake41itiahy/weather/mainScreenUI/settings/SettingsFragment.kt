@@ -1,11 +1,15 @@
 package com.weatherintake41itiahy.weather.mainScreenUI.settings
 
+import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.NumberPicker
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.preference.*
 import androidx.work.WorkManager
@@ -25,6 +29,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         addAlert()
         stopAlert()
         pref= PreferenceManager.getDefaultSharedPreferences(requireContext())
+
     }
 
 
@@ -46,23 +51,43 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
             }
     }
+    private fun locationPermissionState():Boolean{
+        return (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED)
+                && ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED
+    }
 
+    private fun getLocationPermission(){
+        ActivityCompat.requestPermissions(requireActivity(), arrayOf( Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION),99)
+    }
     private fun setSelectLocation() {
         val homeS: ListPreference? = findPreference("home_location")
-
         val valueOfSelection: Preference? = findPreference("set_location")
+        if(homeS?.value!="Select Manually"){
+            valueOfSelection?.isVisible =false
+        }
         homeS?.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener { _, newValue ->
-                valueOfSelection?.isVisible = !newValue.toString().equals("GPS")
+                if(newValue.toString() == "GPS"){
+                    valueOfSelection?.isVisible =false
+                    if(!locationPermissionState()){
+                        getLocationPermission()
+                    }
+                }else{
+                    valueOfSelection?.isVisible=true
+                }
                 true
             }
 
 
     }
+
     private fun stopAlert() {
         val alert: SwitchPreferenceCompat? = findPreference("alert_on")
         val setting: PreferenceCategory? = findPreference("alert_setting")
-        alert?.onPreferenceChangeListener =
+        setting?.isVisible = alert?.isChecked!!
+        alert.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener { _, newValue ->
                     if(newValue==false) {
                         setting?.isVisible = false

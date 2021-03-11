@@ -25,6 +25,8 @@ com/weatherintake41itiahy/weather/model/room/WeatherDAO_Impl.java
  com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$14
  com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$15
  com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$16
+ com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$17
+ com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$18
  com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$2
  com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$3
  com.weatherintake41itiahy.weather.model.room.WeatherDAO_Impl$4

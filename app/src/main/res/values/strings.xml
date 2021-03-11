@@ -61,7 +61,7 @@
     <string name="select_alert_location">select Alert location</string>
     <string name="rain">Rain</string>
     <string name="temperature">Temperature</string>
-    <string name="mist_fog_haze">mist/fog/haze</string>
+    <string name="mist_fog_haze">Mist/Smoke/Haze/Dust/Fog/Sand/Squall/Tornado/Ash</string>
     <string name="snow">Snow</string>
     <string name="cloudiness">cloudiness</string>
     <string name="thunderstorm">thunderstorm</string>

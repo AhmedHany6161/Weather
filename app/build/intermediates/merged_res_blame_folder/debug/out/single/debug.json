@@ -88,6 +88,10 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\visibility.xml"
     },
     {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_recycler_background.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\recycler_background.xml"
     },

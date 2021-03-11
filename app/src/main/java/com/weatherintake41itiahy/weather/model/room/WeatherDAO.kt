@@ -18,6 +18,10 @@ interface WeatherDAO {
     @Query("SELECT * FROM WeatherEntity")
     fun getAllWeather(): Flow<List<WeatherEntity>>
 
+    @Query("SELECT * FROM WeatherEntity where  city == :cityName ")
+    suspend fun getWeatherVal(cityName:String):WeatherEntity
+
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun setWeather(weather: WeatherEntity)
 
@@ -34,8 +38,10 @@ interface WeatherDAO {
     suspend fun setAlert(alertEntity: AlertEntity)
 
     @Query("SELECT * FROM AlertEntity")
-    fun getAllAlerts(): Flow<List<AlertEntity>>
+     fun getAllAlerts(): Flow<List<AlertEntity>>
 
+    @Query("SELECT * FROM AlertEntity")
+    suspend fun getAllAlertsVal(): List<AlertEntity>
     @Update
     suspend fun updateAlert(alertEntity: AlertEntity)
 }

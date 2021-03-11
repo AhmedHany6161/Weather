@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -34,7 +35,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Weather" >
+        <activity android:name="com.weatherintake41itiahy.weather.Splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,17 +57,11 @@
         <activity
             android:name="com.weatherintake41itiahy.weather.map.MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/Theme.Design.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name="com.weatherintake41itiahy.weather.mainScreenUI.mainActivity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Weather.MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service

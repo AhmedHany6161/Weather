@@ -2252,6 +2252,7 @@ id from
 id from_to_and_custom
 id ghost_view
 id ghost_view_holder
+id gifImageView
 id gone
 id graph
 id graph_wrap
@@ -2640,6 +2641,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_maps
+layout activity_splash
 layout alert_co
 layout city_picker_fragment
 layout custom_dialog

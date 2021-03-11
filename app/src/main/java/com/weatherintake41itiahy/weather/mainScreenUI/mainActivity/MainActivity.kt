@@ -1,11 +1,20 @@
 package com.weatherintake41itiahy.weather.mainScreenUI.mainActivity
 
+import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.drawable.AnimationDrawable
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,12 +25,24 @@ import com.weatherintake41itiahy.weather.R
 
 
 class MainActivity : AppCompatActivity() {
-    var mainActivityViewModel: MainActivityViewModel? = null
+
+    private var mainActivityViewModel: MainActivityViewModel? = null
+    private lateinit var locationManager: LocationManager
+    private lateinit var listener:LocationListener
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-
         setContentView(R.layout.activity_main)
+
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        listener=LocationListener {
+            Log.e("hhhhh", "h")
+            mainActivityViewModel?.upDateHomeWeather(
+                it.latitude.toString(),
+                it.longitude.toString()
+            )
+        }
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -38,6 +59,20 @@ class MainActivity : AppCompatActivity() {
             ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
         setAnimated()
+        if (mainActivityViewModel!!.isOpenGPS()) {
+            createLocationLis()
+        }
+
+        mainActivityViewModel?.getLivePref()?.observe(this, {
+            if (it != "Select Manually") {
+                Log.e("eeeeeeee",it)
+
+                createLocationLis()
+            } else {
+                Log.e("eeeeeeee",it)
+                locationManager.removeUpdates(listener)
+            }
+        })
     }
 
     private fun setAnimated() {
@@ -62,6 +97,48 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 99 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "permission deny we can not enable GPS", Toast.LENGTH_LONG).show()
+            mainActivityViewModel?.closeGPS()
+        }
+    }
+
+    private fun createLocationLis() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            getLocationPermission()
+        } else {
+
+            locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER, 5000, 1000f, listener
+            )
+
+        }
+    }
+
+
+    private fun getLocationPermission() {
+        ActivityCompat.requestPermissions(
+            this, arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ), 99
+        )
     }
 
 }

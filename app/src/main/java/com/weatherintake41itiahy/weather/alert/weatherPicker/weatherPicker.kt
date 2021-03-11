@@ -42,7 +42,7 @@ class weatherPicker : Fragment() {
         val cloud: Button = root.findViewById(R.id.pickCloud)
         val thunder: Button = root.findViewById(R.id.pickThunderStorm)
         rain.setOnClickListener {
-            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "rain")
+            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "Rain")
             findNavController().navigate(R.id.alertPref, b)
 
         }
@@ -59,19 +59,19 @@ class weatherPicker : Fragment() {
 
         }
         thunder.setOnClickListener {
-            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "thunder")
+            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "Thunderstorm")
             findNavController().navigate(R.id.alertPref, b)
 
 
         }
         mist.setOnClickListener {
-            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "mist")
+            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "Mist,Smoke,Haze,Fog,Sand,Dust,Tornado,Squall,Ash")
             findNavController().navigate(R.id.alertPref, b)
 
 
         }
         snow.setOnClickListener {
-            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "snow")
+            val b: Bundle = bundleOf("cityName" to cityName, "weatherState" to "Snow")
             findNavController().navigate(R.id.alertPref, b)
 
 

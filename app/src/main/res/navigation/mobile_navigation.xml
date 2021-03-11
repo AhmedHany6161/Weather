@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_favorites_locations" />
     <fragment
         android:id="@+id/Alert"
-        android:name="com.weatherintake41itiahy.weather.alert.Alert"
+        android:name="com.weatherintake41itiahy.weather.alert.mainSreen.Alert"
         android:label="fragment_Alert"
         tools:layout="@layout/fragment_alert" >
         <action

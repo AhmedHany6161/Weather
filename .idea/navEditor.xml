@@ -8,18 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="alarm">
+                  <entry key="Alert">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-637" />
-                            <option name="y" value="367" />
+                            <option name="x" value="-625" />
+                            <option name="y" value="368" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_alarm_to_cityPicker">
+                            <entry key="action_Alert_to_cityPicker">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -91,7 +91,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="68" />
+                            <option name="x" value="-278" />
+                            <option name="y" value="71" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -102,8 +103,20 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-216" />
-                            <option name="y" value="2" />
+                            <option name="x" value="27" />
+                            <option name="y" value="-32" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="splashSrceen">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-524" />
+                            <option name="y" value="59" />
                           </Point>
                         </option>
                       </LayoutPositions>

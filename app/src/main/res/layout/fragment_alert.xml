@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/recycler_background"
-    android:layout_margin="30dp"
-    tools:context=".alert.Alert">
+    android:layout_margin="20dp"
+    tools:context=".alert.mainSreen.Alert">
 
     <Button
         android:id="@+id/alertPickTime"
@@ -25,7 +25,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alerts_rec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,13 +41,13 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:src="@drawable/alarm_add"
-        app:backgroundTint="@color/purple_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.97"
+        android:focusable="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

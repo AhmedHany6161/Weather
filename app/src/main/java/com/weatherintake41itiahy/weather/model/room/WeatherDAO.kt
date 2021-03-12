@@ -44,4 +44,10 @@ interface WeatherDAO {
     suspend fun getAllAlertsVal(): List<AlertEntity>
     @Update
     suspend fun updateAlert(alertEntity: AlertEntity)
+
+    @Query("delete FROM AlertEntity where city== :cityName")
+    suspend fun deleteAlerts(cityName: String)
+
+    @Delete
+    suspend fun deleteAlert(alertEntity: AlertEntity)
 }

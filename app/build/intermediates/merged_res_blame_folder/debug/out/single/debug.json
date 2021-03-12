@@ -208,6 +208,10 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_fav_recycler_background.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\fav_recycler_background.xml"
+    },
+    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
@@ -256,6 +260,10 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\daily_co.xml"
     },
     {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alert_time_ic.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\alert_time_ic.xml"
+    },
+    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_notifications_black_24dp.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\ic_notifications_black_24dp.xml"
     },
@@ -284,8 +292,16 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\notifi_ic_30.xml"
     },
     {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_add_alert.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\add_alert.xml"
+    },
+    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_thander.gif.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\thander.gif"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alert_sound_ic.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\alert_sound_ic.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
@@ -348,6 +364,10 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\no_notifi_ic_30.xml"
     },
     {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alert_ic.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\alert_ic.xml"
+    },
+    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_nav_item_color_state.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\nav_item_color_state.xml"
     },
@@ -406,6 +426,10 @@
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_morning1.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\background_morning1.xml"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_top_background.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\top_background.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rain_ani_part.gif.flat",

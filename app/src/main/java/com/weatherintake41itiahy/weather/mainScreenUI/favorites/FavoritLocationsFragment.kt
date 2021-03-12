@@ -1,6 +1,7 @@
 package com.weatherintake41itiahy.weather.mainScreenUI.favorites
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -14,10 +15,12 @@ import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -28,7 +31,7 @@ import com.weatherintake41itiahy.weather.map.MapsActivity
 class FavoritLocationsFragment : Fragment() {
 
     private lateinit var favoriteLocationsViewModel: FavoritLocationsViewModel
-
+    private lateinit var adapter: FavAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,7 +48,7 @@ class FavoritLocationsFragment : Fragment() {
         val customP: FrameLayout = root.findViewById(R.id.fav_p_no_data)
 
         rec.layoutManager = LinearLayoutManager(context)
-        val adapter = FavAdapter(favoriteLocationsViewModel)
+        adapter = FavAdapter(favoriteLocationsViewModel)
         rec.adapter = adapter
         favoriteLocationsViewModel.getFavorites().observe(viewLifecycleOwner, {
             if (!it.isNullOrEmpty()) {
@@ -66,13 +69,15 @@ class FavoritLocationsFragment : Fragment() {
                 Toast.makeText(context, "no internet connection", Toast.LENGTH_LONG).show()
             }
         }
-        favoriteLocationsViewModel.getFavObjectIntent().observe(viewLifecycleOwner,{
-            if(it!=null){
-                 val b: Bundle= bundleOf("data" to it)
-                 findNavController().navigate(R.id.favViewer,b)
+        favoriteLocationsViewModel.getFavObjectIntent().observe(viewLifecycleOwner, {
+            if (it != null) {
+                val b: Bundle = bundleOf("data" to it)
+                findNavController().navigate(R.id.favViewer, b)
                 favoriteLocationsViewModel.reset()
             }
         })
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(rec)
         return root
     }
 
@@ -100,5 +105,39 @@ class FavoritLocationsFragment : Fragment() {
             }
         }
         return false
+    }
+
+    private var simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
+        ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or ItemTouchHelper.DOWN or ItemTouchHelper.UP
+        ) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+            val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
+
+            builder.setTitle("delete")
+            builder.setMessage("you want to delete this item")
+            builder.setCancelable(false)
+            builder.setPositiveButton("ok") { dialog, id ->
+                val position = viewHolder.adapterPosition
+                adapter.notifyItemRemoved(position)
+                favoriteLocationsViewModel.deleteItem(adapter.deleteItem(position))
+                dialog.cancel()
+            }
+            builder.setNegativeButton("cancel"){ dialog, id ->
+              adapter.notifyDataSetChanged()
+                dialog.cancel()
+            }
+            builder.show()
+
+        }
     }
 }

@@ -1,8 +1,9 @@
-package com.weatherintake41itiahy.weather
+package com.weatherintake41itiahy.weather.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.mainScreenUI.mainActivity.MainActivity
 import kotlinx.coroutines.*
 

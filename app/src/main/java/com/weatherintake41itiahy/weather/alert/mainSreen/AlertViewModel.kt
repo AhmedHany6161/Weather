@@ -8,7 +8,7 @@ import com.weatherintake41itiahy.weather.model.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AlertViewModel (application: Application) : AndroidViewModel(application) {
+class AlertViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: Repository = Repository.getInstance(application)
     private var open: MutableLiveData<AlertEntity> = MutableLiveData()
     private val liveData: LiveData<List<AlertEntity>> =
@@ -22,17 +22,23 @@ class AlertViewModel (application: Application) : AndroidViewModel(application) 
         open.value = alertEntity
     }
 
-    fun reset(){
-        open.value=null
+    fun reset() {
+        open.value = null
     }
 
     fun getObjectIntent(): LiveData<AlertEntity> {
         return open
     }
 
-    fun updateAlert(alertEntity: AlertEntity){
-        viewModelScope.launch (Dispatchers.IO){
+    fun updateAlert(alertEntity: AlertEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.updateAlert(alertEntity)
+        }
+    }
+
+    fun deleteItem(alertEntity: AlertEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAlert(alertEntity)
         }
     }
 }

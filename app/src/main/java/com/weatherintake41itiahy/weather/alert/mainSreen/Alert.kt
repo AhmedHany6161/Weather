@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TimePicker
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,7 +27,7 @@ import java.util.*
 class Alert : Fragment() {
 
     private lateinit var viewModel: AlertViewModel
-
+    private lateinit var adapter: AlertAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,8 +52,11 @@ class Alert : Fragment() {
                         if (initTime < 0) {
                             initTime += 1440
                         }
-                        WorkProcess.getInstance(application = requireActivity().application).setAlert(initTime,
-                            pref.getString("alert_for_next", "86400")!!.toLong())
+                        WorkProcess.getInstance(application = requireActivity().application)
+                            .setAlert(
+                                initTime,
+                                pref.getString("alert_for_next", "86400")!!.toLong()
+                            )
 
                     }
 
@@ -67,7 +72,7 @@ class Alert : Fragment() {
             ViewModelProvider(this).get(AlertViewModel::class.java)
         val rec: RecyclerView = root.findViewById(R.id.alerts_rec)
         rec.layoutManager = LinearLayoutManager(context)
-        val adapter = AlertAdapter(viewModel)
+        adapter = AlertAdapter(viewModel)
         rec.adapter = adapter
         viewModel.getData().observe(viewLifecycleOwner, {
             if (!it.isNullOrEmpty()) {
@@ -82,8 +87,42 @@ class Alert : Fragment() {
                 viewModel.reset()
             }
         })
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(rec)
         return root
     }
 
+    private var simpleItemTouchCallback: ItemTouchHelper.SimpleCallback = object :
+        ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or ItemTouchHelper.DOWN or ItemTouchHelper.UP
+        ) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return false
+        }
 
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, swipeDir: Int) {
+            val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
+
+            builder.setTitle("delete")
+            builder.setMessage("you want to delete this item")
+            builder.setCancelable(false)
+            builder.setPositiveButton("ok") { dialog, id ->
+                val position = viewHolder.adapterPosition
+                adapter.notifyItemRemoved(position)
+                viewModel.deleteItem(adapter.deleteItem(position))
+                dialog.cancel()
+            }
+            builder.setNegativeButton("cancel") { dialog, id ->
+                adapter.notifyDataSetChanged()
+                dialog.cancel()
+            }
+            builder.show()
+
+        }
+    }
 }

@@ -4,10 +4,12 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 import com.weatherintake41itiahy.weather.model.repository.Repository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class FavoritLocationsViewModel(application: Application) : AndroidViewModel(application) {
-   private val repository: Repository = Repository.getInstance(application)
-   private var openFav:MutableLiveData<WeatherEntity> = MutableLiveData()
+    private val repository: Repository = Repository.getInstance(application)
+    private var openFav: MutableLiveData<WeatherEntity> = MutableLiveData()
     private val liveData: LiveData<List<WeatherEntity>> =
         repository.getFavoriteLocations().asLiveData()
 
@@ -19,11 +21,17 @@ class FavoritLocationsViewModel(application: Application) : AndroidViewModel(app
         openFav.value = weatherEntity
     }
 
-    fun reset(){
-        openFav.value=null
+    fun reset() {
+        openFav.value = null
     }
 
-    fun getFavObjectIntent():LiveData<WeatherEntity>{
+    fun getFavObjectIntent(): LiveData<WeatherEntity> {
         return openFav
+    }
+
+    fun deleteItem(weatherEntity: WeatherEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteItem(weatherEntity)
+        }
     }
 }

@@ -6,8 +6,8 @@
         android:color="#260D47A1"
         android:dashWidth="50dp" />
     <solid android:color="#1A90CAF9" />
-    <corners android:topRightRadius="70dp"
+    <corners android:topRightRadius="10dp"
         android:topLeftRadius="10dp"
-        android:bottomLeftRadius="70dp"
-        android:bottomRightRadius="70dp"/>
+        android:bottomLeftRadius="50dp"
+        android:bottomRightRadius="50dp"/>
 </shape>

@@ -16,12 +16,14 @@ import java.lang.StringBuilder
 class AlertAdapter(private val viewModel: AlertViewModel) :
     RecyclerView.Adapter<AlertAdapter.Holder>() {
 
-    private var list: List<AlertEntity>? = null
+    private var list: MutableList<AlertEntity>? = null
 
     fun setData(alertEntity: List<AlertEntity>) {
-        list = alertEntity
+        list = alertEntity as MutableList<AlertEntity>
     }
-
+    fun deleteItem(position: Int):AlertEntity{
+        return list?.removeAt(position)!!
+    }
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val state: TextView = itemView.findViewById(R.id.alert_weather_state)

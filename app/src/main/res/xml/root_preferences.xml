@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        app:icon="@drawable/setting_home"
         app:title="@string/select_locatin">
         <ListPreference
             app:defaultValue="Select Manually"
@@ -23,7 +22,6 @@
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
     <PreferenceCategory
-        app:icon="@drawable/setting_unit"
         app:title="@string/Units">
         <DropDownPreference
             app:defaultValue="Celsius"
@@ -49,6 +47,7 @@
     <PreferenceCategory app:title="Home Alert">
         <SwitchPreferenceCompat
             app:key="alert_on"
+            android:icon="@drawable/alert_ic"
             app:title="@string/turnOn" />
     <PreferenceCategory app:title="@string/AlertSetting"
         app:key="alert_setting"
@@ -56,6 +55,7 @@
         <DropDownPreference
             app:defaultValue="Alert sound"
             app:entries="@array/Alert_sound_name"
+            android:icon="@drawable/alert_sound_ic"
             app:entryValues="@array/Alert_sound_value"
             app:key="Alert_sound"
             app:persistent="true"
@@ -64,6 +64,7 @@
 
         <DropDownPreference
             app:defaultValue="86400"
+            android:icon="@drawable/alert_time_ic"
             app:entries="@array/Alert_for_next"
             app:entryValues="@array/Alert_for_next_val"
             app:key="alert_for_next"
@@ -75,7 +76,7 @@
         <Preference
             android:persistent="true"
             app:defaultValue="none"
-            app:icon="@drawable/alarm_add"
+            app:icon="@drawable/add_alert"
             app:key="set_Alert"
             app:title="@string/add_Alert"
             app:useSimpleSummaryProvider="true" />

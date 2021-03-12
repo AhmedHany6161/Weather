@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:background="@drawable/recycler_background"
+    android:background="@drawable/fav_recycler_background"
     android:orientation="horizontal"
     android:weightSum="5">
 

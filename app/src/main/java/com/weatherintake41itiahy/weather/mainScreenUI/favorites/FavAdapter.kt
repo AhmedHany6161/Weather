@@ -20,10 +20,13 @@ import java.util.*
 
 class FavAdapter(val favoriteLocationsViewModel: FavoritLocationsViewModel): RecyclerView.Adapter<FavAdapter.Holder>() {
 
-    private var list: List<WeatherEntity>? = null
+    private var list: MutableList<WeatherEntity>? = null
 
     fun setData(weatherEntity: List<WeatherEntity>) {
-        list=weatherEntity
+        list=weatherEntity as MutableList<WeatherEntity>
+    }
+    fun deleteItem(position: Int):WeatherEntity{
+       return list?.removeAt(position)!!
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -83,7 +83,7 @@ class Repository private constructor(application: Application) {
 
     suspend fun deleteItem(weatherEntity: WeatherEntity) {
         weatherDAO.delete(weatherEntity)
-
+        weatherDAO.deleteAlerts(weatherEntity.city)
     }
 
     suspend fun deleteAll() {
@@ -152,6 +152,10 @@ class Repository private constructor(application: Application) {
 
     suspend fun getWeatherById(city: String):WeatherEntity{
       return  weatherDAO.getWeatherVal(city)
+    }
+
+    suspend fun deleteAlert(alertEntity: AlertEntity){
+        weatherDAO.deleteAlert(alertEntity)
     }
 
 }

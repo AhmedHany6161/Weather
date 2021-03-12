@@ -39,11 +39,15 @@ public final class WeatherDAO_Impl implements WeatherDAO {
 
   private final EntityDeletionOrUpdateAdapter<WeatherEntity> __deletionAdapterOfWeatherEntity;
 
+  private final EntityDeletionOrUpdateAdapter<AlertEntity> __deletionAdapterOfAlertEntity;
+
   private final EntityDeletionOrUpdateAdapter<AlertEntity> __updateAdapterOfAlertEntity;
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAll;
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteHome;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteAlerts;
 
   public WeatherDAO_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -148,6 +152,17 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         }
       }
     };
+    this.__deletionAdapterOfAlertEntity = new EntityDeletionOrUpdateAdapter<AlertEntity>(__db) {
+      @Override
+      public String createQuery() {
+        return "DELETE FROM `AlertEntity` WHERE `id` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, AlertEntity value) {
+        stmt.bindLong(1, value.getId());
+      }
+    };
     this.__updateAdapterOfAlertEntity = new EntityDeletionOrUpdateAdapter<AlertEntity>(__db) {
       @Override
       public String createQuery() {
@@ -205,6 +220,13 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         return _query;
       }
     };
+    this.__preparedStmtOfDeleteAlerts = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "delete FROM AlertEntity where city== ?";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -249,6 +271,23 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         __db.beginTransaction();
         try {
           __deletionAdapterOfWeatherEntity.handle(weather);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, p1);
+  }
+
+  @Override
+  public Object deleteAlert(final AlertEntity alertEntity, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __deletionAdapterOfAlertEntity.handle(alertEntity);
           __db.setTransactionSuccessful();
           return Unit.INSTANCE;
         } finally {
@@ -311,6 +350,31 @@ public final class WeatherDAO_Impl implements WeatherDAO {
         }
       }
     }, p0);
+  }
+
+  @Override
+  public Object deleteAlerts(final String cityName, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAlerts.acquire();
+        int _argIndex = 1;
+        if (cityName == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindString(_argIndex, cityName);
+        }
+        __db.beginTransaction();
+        try {
+          _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfDeleteAlerts.release(_stmt);
+        }
+      }
+    }, p1);
   }
 
   @Override

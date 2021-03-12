@@ -64,9 +64,9 @@
 36        android:testOnly="true"
 37        android:theme="@style/Theme.Weather" >
 37-->D:\Weather2\app\src\main\AndroidManifest.xml:22:9-45
-38        <activity android:name="com.weatherintake41itiahy.weather.Splash" >
+38        <activity android:name="com.weatherintake41itiahy.weather.splash.Splash" >
 38-->D:\Weather2\app\src\main\AndroidManifest.xml:24:9-30:20
-38-->D:\Weather2\app\src\main\AndroidManifest.xml:24:19-41
+38-->D:\Weather2\app\src\main\AndroidManifest.xml:24:19-48
 39            <intent-filter>
 39-->D:\Weather2\app\src\main\AndroidManifest.xml:25:13-29:29
 40                <action android:name="android.intent.action.MAIN" />

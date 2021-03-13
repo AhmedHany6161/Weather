@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.drawable.AnimationDrawable
+import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
@@ -37,13 +38,33 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        listener = LocationListener {
-            Log.e("hhhhh", "h")
-            mainActivityViewModel?.upDateHomeWeather(
-                it.latitude.toString(),
-                it.longitude.toString()
-            )
+        listener = object : LocationListener {
+            override fun onLocationChanged(location: Location) {
+                mainActivityViewModel?.upDateHomeWeather(
+                    location.latitude.toString(),
+                    location.longitude.toString()
+                )
+            }
+
+            override fun onProviderEnabled(provider: String) {
+                super.onProviderEnabled(provider)
+
+
+
+            }
+
+            override fun onProviderDisabled(provider: String) {
+                locationManager.removeUpdates(listener)
+                mainActivityViewModel?.closeGPS()
+                Toast.makeText(
+                    this@MainActivity,
+                    "provider is Disabled we can not enable GPS",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
         }
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)

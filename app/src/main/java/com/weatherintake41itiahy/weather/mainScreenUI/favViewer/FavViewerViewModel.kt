@@ -57,7 +57,8 @@ class FavViewerViewModel (application: Application): AndroidViewModel(applicatio
                             MainFeatures(
                                 currentWeather,
                                 weatherEntity,
-                                current
+                                current,
+                                context = application.applicationContext
                             )
                         )
                     } else {
@@ -66,6 +67,7 @@ class FavViewerViewModel (application: Application): AndroidViewModel(applicatio
                                 list!![47],
                                 weatherEntity,
                                 current,
+                                context = application.applicationContext,
                                 true
                             )
                         )

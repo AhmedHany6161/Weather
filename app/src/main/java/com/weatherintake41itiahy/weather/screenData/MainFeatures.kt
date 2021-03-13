@@ -1,5 +1,7 @@
 package com.weatherintake41itiahy.weather.screenData
 
+import android.content.Context
+import com.weatherintake41itiahy.weather.Local.LocalLang
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.model.entity.WeatherEntity
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
@@ -10,6 +12,7 @@ data class MainFeatures(
     private val currentWeather: Hourly,
     private val weatherEntity: WeatherEntity,
     private val current: Long,
+    private val context: Context,
     val outOfDate: Boolean = false
 ) {
     val imageId: Int
@@ -60,7 +63,7 @@ data class MainFeatures(
             }
         }
         city = weatherEntity.city
-        disc = currentWeather.weatherDescription
+        disc = context.getString(LocalLang.getDecWeatherSate(currentWeather.weatherDescription))
         timeZone =weatherEntity.timeZone
         feelsLike = currentWeather.feels_like
         pressure = currentWeather.pressure

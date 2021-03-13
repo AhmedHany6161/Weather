@@ -1,19 +1,10 @@
 package com.weatherintake41itiahy.weather.mainScreenUI.mainActivity
 
-import android.Manifest
 import android.app.Application
-import android.content.Context
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.preference.Preference
 import androidx.preference.PreferenceManager
 import com.weatherintake41itiahy.weather.work.WorkProcess
 
@@ -21,14 +12,17 @@ import com.weatherintake41itiahy.weather.work.WorkProcess
 class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
     private val pref = PreferenceManager.getDefaultSharedPreferences(application)
     private val listener: SharedPreferences.OnSharedPreferenceChangeListener
-    private val livePref: MutableLiveData<String> = MutableLiveData()
+    private val livePrefLocation: MutableLiveData<String> = MutableLiveData()
+    private val livePrefLang: MutableLiveData<String?> = MutableLiveData()
 
     init {
         listener =
             SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
                 if (key.equals("home_location")) {
-                    livePref.value =
+                    livePrefLocation.value =
                         sharedPreferences?.getString("home_location", "Select Manually")
+                }else if(key.equals("language")){
+                    livePrefLang.value=sharedPreferences?.getString("language", "en")
                 }
             }
 
@@ -59,8 +53,17 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         pref.unregisterOnSharedPreferenceChangeListener(listener)
     }
 
-    fun getLivePref(): LiveData<String> {
-        return livePref
+    fun getLivePrefLocation(): LiveData<String> {
+        return livePrefLocation
     }
 
+    fun getLang():String {
+       return pref.getString("language","en")!!
+    }
+    fun getLivePrefLang():LiveData<String?>{
+        return livePrefLang
+    }
+    fun resetLang(){
+        livePrefLang.value=null
+    }
 }

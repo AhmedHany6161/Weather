@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.weatherintake41itiahy.weather.Local.LocalLang
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Daily
@@ -51,7 +52,7 @@ class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
             image.setImageResource(imageId)
             tempMin.text = filter.getTemp(currentWeather.tempMin)
             tempMax.text = filter.getTemp(currentWeather.tempMax)
-            main.text = currentWeather.weatherMain
+            main.text = context.getString(LocalLang.getMainWeatherSate(currentWeather.weatherMain))
             clouds.text = " ${currentWeather.clouds}%"
             hum.text = " ${currentWeather.humidity}%"
             press.text = " ${currentWeather.pressure}hPa"

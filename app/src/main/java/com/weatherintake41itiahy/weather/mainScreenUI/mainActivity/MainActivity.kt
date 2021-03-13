@@ -4,17 +4,18 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.drawable.AnimationDrawable
-import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -22,21 +23,21 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.weatherintake41itiahy.weather.R
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private var mainActivityViewModel: MainActivityViewModel? = null
     private lateinit var locationManager: LocationManager
-    private lateinit var listener:LocationListener
+    private lateinit var listener: LocationListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
-
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        listener=LocationListener {
+        listener = LocationListener {
             Log.e("hhhhh", "h")
             mainActivityViewModel?.upDateHomeWeather(
                 it.latitude.toString(),
@@ -63,17 +64,44 @@ class MainActivity : AppCompatActivity() {
             createLocationLis()
         }
 
-        mainActivityViewModel?.getLivePref()?.observe(this, {
+        mainActivityViewModel?.getLivePrefLocation()?.observe(this, {
             if (it != "Select Manually") {
-                Log.e("eeeeeeee",it)
+                Log.e("eeeeeeee", it)
 
                 createLocationLis()
             } else {
-                Log.e("eeeeeeee",it)
+                Log.e("eeeeeeee", it)
                 locationManager.removeUpdates(listener)
             }
         })
+
+        mainActivityViewModel?.getLivePrefLang()?.observe(this, {
+            if (it != null) {
+                setLocal(it)
+                finish()
+                startActivity(intent)
+                mainActivityViewModel?.resetLang()
+            }
+        })
+        setLocal(mainActivityViewModel?.getLang()!!)
     }
+
+    @Suppress("DEPRECATION")
+    private fun setLocal(languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val res: Resources = resources
+        val resApp: Resources = application.resources
+        val config: Configuration = Configuration(res.configuration)
+        val configApp: Configuration = Configuration(resApp.configuration)
+        config.setLocale(locale)
+        configApp.setLocale(locale)
+        //application.createConfigurationContext(config)
+        res.updateConfiguration(config, res.displayMetrics)
+        resApp.updateConfiguration(configApp, res.displayMetrics)
+
+    }
+
 
     private fun setAnimated() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.main_container)

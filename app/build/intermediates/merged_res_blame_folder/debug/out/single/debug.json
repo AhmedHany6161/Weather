@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_language_ic.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\language_ic.xml"
+    },
+    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_home_24.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\ic_baseline_home_24.xml"
     },
@@ -28,12 +32,12 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_morning2_1.xml.flat",
-        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\background_morning2_1.xml"
-    },
-    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_favorites_locations.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\fragment_favorites_locations.xml"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_morning2_1.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\background_morning2_1.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cloud_gg.gif.flat",
@@ -92,12 +96,12 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
-        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_recycler_background.xml.flat",
-        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\recycler_background.xml"
-    },
-    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_recycler_background.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\recycler_background.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\anim_main_sreen_anim_right_left.xml.flat",
@@ -168,12 +172,12 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\setting_home.xml"
     },
     {
-        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\Weather2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_alert_pref.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\fragment_alert_pref.xml"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_setting_unit.xml.flat",
@@ -256,12 +260,12 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\setting.xml"
     },
     {
-        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\layout_daily_co.xml.flat",
-        "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\daily_co.xml"
-    },
-    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alert_time_ic.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\alert_time_ic.xml"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\layout_daily_co.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\daily_co.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_notifications_black_24dp.xml.flat",
@@ -320,12 +324,12 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\edit_ic_30.xml"
     },
     {
-        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_downward_24.xml.flat",
-        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_downward_24.xml"
-    },
-    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\layout_city_picker_fragment.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\layout\\city_picker_fragment.xml"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_downward_24.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_downward_24.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\anim_item_animation_fall_down.xml.flat",
@@ -348,12 +352,12 @@
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\add_location.xml"
     },
     {
-        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_wind_degree_18.xml.flat",
-        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\wind_degree_18.xml"
-    },
-    {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_edit_ic.xml.flat",
         "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\edit_ic.xml"
+    },
+    {
+        "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_wind_degree_18.xml.flat",
+        "source": "D:\\Weather2\\app\\src\\main\\res\\drawable\\wind_degree_18.xml"
     },
     {
         "merged": "D:\\Weather2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_temp_ic.xml.flat",

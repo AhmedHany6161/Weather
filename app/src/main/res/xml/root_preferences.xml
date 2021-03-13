@@ -33,9 +33,9 @@
             app:title="@string/temp"
             app:useSimpleSummaryProvider="true" />
         <DropDownPreference
-            app:defaultValue="meter/sec"
+            app:defaultValue="@string/meter_sec"
             app:entries="@array/units_wind_name"
-            app:entryValues="@array/units_wind_value"
+            app:entryValues="@array/units_wind_name"
             app:icon="@drawable/air_ic"
             app:key="wind_speed"
             app:persistent="true"
@@ -43,8 +43,18 @@
 
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
-
-    <PreferenceCategory app:title="Home Alert">
+    <PreferenceCategory app:title="@string/choose_lang">
+        <DropDownPreference
+            app:defaultValue="en"
+            app:entries="@array/lang"
+            app:entryValues="@array/lang_val"
+            app:icon="@drawable/language_ic"
+            app:key="language"
+            app:persistent="true"
+            app:useSimpleSummaryProvider="true"
+            app:title="@string/language"/>
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/home_alert">
         <SwitchPreferenceCompat
             app:key="alert_on"
             android:icon="@drawable/alert_ic"
@@ -69,7 +79,7 @@
             app:entryValues="@array/Alert_for_next_val"
             app:key="alert_for_next"
             app:persistent="true"
-            app:title="for next"
+            app:title="@string/every"
             app:useSimpleSummaryProvider="true" />
 
 

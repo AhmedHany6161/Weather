@@ -64,7 +64,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             MainFeatures(
                                 currentWeather,
                                 weatherEntity!!,
-                                current
+                                current,
+                                context = application.applicationContext
                             )
                         )
                     } else {
@@ -73,6 +74,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                                 list!![47],
                                 weatherEntity!!,
                                 current,
+                                context = application.applicationContext,
                                 true
                             )
                         )

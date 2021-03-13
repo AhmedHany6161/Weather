@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.weatherintake41itiahy.weather.Local.LocalLang
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
@@ -51,7 +52,7 @@ class HourlyAdapter : RecyclerView.Adapter<HourlyAdapter.Holder>() {
             image.setImageResource(imageId)
             time.text = simpleTime.format(cDate)
             temp.text = filter.getTemp(currentWeather.temp)
-            main.text = currentWeather.weatherMain
+            main.text = context.getText(LocalLang.getMainWeatherSate(currentWeather.weatherMain))
             clouds.text = " ${currentWeather.clouds}%"
             parent.animation =
                 AnimationUtils.loadAnimation(context, R.anim.recycler_anime_up_down)

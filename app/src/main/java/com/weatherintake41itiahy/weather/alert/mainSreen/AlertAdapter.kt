@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.weatherintake41itiahy.weather.Local.LocalLang
 import com.weatherintake41itiahy.weather.R
 
 import com.weatherintake41itiahy.weather.model.entity.AlertEntity
@@ -26,17 +27,20 @@ class AlertAdapter(private val viewModel: AlertViewModel) :
     }
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val state: TextView = itemView.findViewById(R.id.alert_weather_state)
+        private val city: TextView = itemView.findViewById(R.id.alert_weather_city)
         private val des: TextView = itemView.findViewById(R.id.alert_desc)
         private val fromDuration: TextView = itemView.findViewById(R.id.from_to_and_custom)
         private val days: TextView = itemView.findViewById(R.id.txt_alert_days)
         private val edit: ImageView = itemView.findViewById(R.id.btn_edit_alert)
         private val notifi: ImageView = itemView.findViewById(R.id.btn_notification_alrt)
         fun bind(alertEntity: AlertEntity, context: Context, viewModel: AlertViewModel) {
-            state.text = alertEntity.weatherState
+            city.text = alertEntity.city
             des.text = alertEntity.desc
             fromDuration.text =
-                "from ${alertEntity.from} during ${alertEntity.duration} if ${alertEntity.weatherState}"
+                "${context.getString(R.string.from)} ${alertEntity.from} \n" +
+                        "${context.getString(R.string.duration)} = " +
+                        "${alertEntity.duration} \n${context.getString(R.string.check)} " +
+                        "${context.getString(LocalLang.getMainWeatherAlert(alertEntity.weatherState))}"
             val st = StringBuilder()
             for (I in alertEntity.listDays) {
                 st.append(I).append(" , ")

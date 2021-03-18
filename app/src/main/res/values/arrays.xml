@@ -37,7 +37,6 @@
     <string-array name="Alert_sound_name">
         <item>@string/Alert_s</item>
         <item>@string/notification_s</item>
-        <item>@string/none</item>
     </string-array>
     <string-array name="Alert_for_next">
         <item>24</item>
@@ -53,7 +52,6 @@
     <string-array name="Alert_sound_value">
         <item>Alert sound</item>
         <item>notification sound</item>
-        <item>none</item>
     </string-array>
     <string-array name="units_wind_value">
         <item>meter/sec</item>

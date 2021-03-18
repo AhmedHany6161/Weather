@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Weather2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "D:\\Weather\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ahmed\\.gradle\\caches\\transforms-2\\files-2.1\\f04f77f5bf22057a29bdffafb3270f20\\appcompat-1.2.0\\res\\values-land\\values-land.xml",

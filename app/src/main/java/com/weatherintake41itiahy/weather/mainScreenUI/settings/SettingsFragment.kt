@@ -115,14 +115,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
         homeS?.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener { _, newValue ->
-                if (newValue.toString() == "GPS") {
-                    valueOfSelection?.isVisible = false
-                    if (!locationPermissionState()) {
-                        getLocationPermission()
-                    }
-                } else {
-                    valueOfSelection?.isVisible = true
-                }
+                valueOfSelection?.isVisible = newValue.toString() != "GPS"
                 true
             }
 

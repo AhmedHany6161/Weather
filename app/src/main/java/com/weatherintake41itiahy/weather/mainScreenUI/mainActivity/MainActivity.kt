@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                 super.onProviderEnabled(provider)
 
 
-
             }
 
             override fun onProviderDisabled(provider: String) {
@@ -88,7 +87,6 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel?.getLivePrefLocation()?.observe(this, {
             if (it != "Select Manually") {
                 Log.e("eeeeeeee", it)
-
                 createLocationLis()
             } else {
                 Log.e("eeeeeeee", it)
@@ -97,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         mainActivityViewModel?.getLivePrefLang()?.observe(this, {
-            if (it != null) {
+            if (it != null&& it !=Locale.getDefault().language) {
                 setLocal(it)
                 finish()
                 startActivity(intent)
@@ -155,9 +153,11 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 99 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+        if (grantResults.isNotEmpty() && requestCode == 99 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "permission deny we can not enable GPS", Toast.LENGTH_LONG).show()
             mainActivityViewModel?.closeGPS()
+        } else if (grantResults.isNotEmpty() && requestCode == 99 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            createLocationLis()
         }
     }
 

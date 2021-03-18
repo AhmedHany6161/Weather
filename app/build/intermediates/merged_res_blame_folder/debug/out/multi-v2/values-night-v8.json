@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Weather2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "D:\\Weather\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ahmed\\.gradle\\caches\\transforms-2\\files-2.1\\e6cceb537b405382783f42c692aff293\\jetified-materialdaypicker-0.7.4\\res\\values-night-v8\\values-night-v8.xml",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ahmed\\.gradle\\caches\\transforms-2\\files-2.1\\f04f77f5bf22057a29bdffafb3270f20\\appcompat-1.2.0\\res\\values-night-v8\\values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,687",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,771"
-                    },
-                    "to": {
-                        "startLines": "11,12,13,14,15,16,17,47",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "711,781,865,949,1045,1147,1249,3924",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "776,860,944,1040,1142,1244,1338,4008"
-                    }
-                },
-                {
-                    "source": "D:\\Weather2\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "D:\\Weather\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2,16",
                         "startColumns": "4,4",
@@ -71,6 +54,23 @@
                         "endLines": "46,52",
                         "endColumns": "12,12",
                         "endOffsets": "3919,4376"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ahmed\\.gradle\\caches\\transforms-2\\files-2.1\\f04f77f5bf22057a29bdffafb3270f20\\appcompat-1.2.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,47",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "711,781,865,949,1045,1147,1249,3924",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "776,860,944,1040,1142,1244,1338,4008"
                     }
                 }
             ]

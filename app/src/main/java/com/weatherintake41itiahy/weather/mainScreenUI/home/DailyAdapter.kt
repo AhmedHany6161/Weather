@@ -14,6 +14,7 @@ import com.weatherintake41itiahy.weather.Local.LocalLang
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Daily
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,9 +54,10 @@ class DailyAdapter : RecyclerView.Adapter<DailyAdapter.Holder>() {
             tempMin.text = filter.getTemp(currentWeather.tempMin)
             tempMax.text = filter.getTemp(currentWeather.tempMax)
             main.text = context.getString(LocalLang.getMainWeatherSate(currentWeather.weatherMain))
-            clouds.text = " ${currentWeather.clouds}%"
-            hum.text = " ${currentWeather.humidity}%"
-            press.text = " ${currentWeather.pressure}hPa"
+            clouds.text = " ${
+                NumberFormat.getInstance(Locale.getDefault()).format(currentWeather.clouds)}%"
+            hum.text = " ${NumberFormat.getInstance(Locale.getDefault()).format(currentWeather.humidity)}%"
+            press.text = " ${NumberFormat.getInstance(Locale.getDefault()).format(currentWeather.pressure)}hPa"
         }
     }
 

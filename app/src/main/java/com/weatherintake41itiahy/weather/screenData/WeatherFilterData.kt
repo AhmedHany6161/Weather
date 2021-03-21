@@ -6,6 +6,8 @@ import androidx.preference.PreferenceManager
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Daily
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.util.*
 
 class WeatherFilterData(val context: Context) {
@@ -15,13 +17,13 @@ class WeatherFilterData(val context: Context) {
     fun getTemp(temp: Int): String {
         return when {
             degreeUnit.equals("Celsius") -> {
-                "${temp}°c"
+                "${NumberFormat.getInstance(Locale.getDefault()).format(temp)}°c"
             }
             degreeUnit.equals("kelvin") -> {
-                "${(temp + 273.1)}°k"
+                "${NumberFormat.getInstance(Locale.getDefault()).format(temp + 273.1)}°k"
             }
             else -> {
-                "${String.format("%.1f", ((temp + 32f) / (5f / 9f)))}°f"
+                "${String.format("%.1f", NumberFormat.getInstance(Locale.getDefault()).format((temp + 32f) / (5f / 9f)))}°f"
             }
         }
     }
@@ -89,6 +91,6 @@ class WeatherFilterData(val context: Context) {
     }
 
     fun getSpeedUnit(speed: Float): String {
-        return "${speed} ${speedUnit}"
+        return "${DecimalFormat.getInstance(Locale.getDefault()).format(speed)} ${speedUnit}"
     }
 }

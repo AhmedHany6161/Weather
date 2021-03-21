@@ -19,6 +19,7 @@ import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import kotlinx.coroutines.*
 import pl.droidsonroids.gif.GifImageView
+import java.text.NumberFormat
 import java.util.*
 
 
@@ -90,14 +91,16 @@ class HomeFragment : Fragment() {
                 imageState.setImageResource(it.imageId)
                 date.timeZone = it.timeZone
                 time.timeZone = it.timeZone
-                cloudPercent.text = " ${it.clouds}%"
+                cloudPercent.text = " ${
+                    NumberFormat.getInstance(Locale.getDefault()).format(it.clouds)
+                }%"
                 temp.text = filter.getTemp(it.temp)
                 feelLike.text = "${getString(R.string.FeelLike)} ${filter.getTemp(it.feelsLike)}"
-                hum.text = "${it.humidity}%"
-                pressure.text = "${it.pressure}hPa"
+                hum.text = "${NumberFormat.getInstance(Locale.getDefault()).format(it.humidity)}%"
+                pressure.text = "${NumberFormat.getInstance(Locale.getDefault()).format(it.pressure)}hPa"
                 windSpeed.text = filter.getSpeedUnit(it.windSpeed)
-                windDegree.text = "${it.windDegree}°"
-                visablity.text = "${it.visibility}m"
+                windDegree.text = "${NumberFormat.getInstance(Locale.getDefault()).format(it.windDegree)}°"
+                visablity.text = "${NumberFormat.getInstance(Locale.getDefault()).format(it.visibility)}m"
                 if (it.outOfDate) {
                     outOfDate.visibility = View.VISIBLE
                 } else {

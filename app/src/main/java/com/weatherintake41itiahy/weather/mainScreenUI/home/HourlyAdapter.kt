@@ -13,6 +13,7 @@ import com.weatherintake41itiahy.weather.Local.LocalLang
 import com.weatherintake41itiahy.weather.R
 import com.weatherintake41itiahy.weather.screenData.WeatherFilterData
 import com.weatherintake41itiahy.weather.model.entity.weatherTimes.Hourly
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,7 +54,8 @@ class HourlyAdapter : RecyclerView.Adapter<HourlyAdapter.Holder>() {
             time.text = simpleTime.format(cDate)
             temp.text = filter.getTemp(currentWeather.temp)
             main.text = context.getText(LocalLang.getMainWeatherSate(currentWeather.weatherMain))
-            clouds.text = " ${currentWeather.clouds}%"
+            clouds.text = " ${
+                NumberFormat.getInstance(Locale.getDefault()).format(currentWeather.clouds)}%"
             parent.animation =
                 AnimationUtils.loadAnimation(context, R.anim.recycler_anime_up_down)
         }
